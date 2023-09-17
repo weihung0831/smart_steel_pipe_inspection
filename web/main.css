@@ -1,0 +1,45 @@
+.navbar-center {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+  }
+
+  #title {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.537);
+    margin: 70px;
+    font-size: 35px;
+  }
+
+  #submitBtn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    font-size: 20px;
+  }
+
+  label {
+    color: red !important;
+    margin-left: auto;
+    margin-right: 900px;
+    text-align: center;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.537);
+  margin: 40px;
+  font-size: 20px;
+}
+
+
