@@ -1,0 +1,71 @@
+.navbar-center {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+}
+
+#title {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.537);
+  margin: 50px;
+  font-size: 35px;
+}
+
+#submitBtn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  font-size: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.537);
+  margin: 40px;
+  font-size: 20px;
+}
+
+table {
+  font-size: 16px;
+  margin-top: 30px;
+
+}
+
+#power_btn {
+  display: block;
+  margin-left: 40px;
+  font-size: 20px;
+  background-color: #215fbc;
+}
+
+#stop_btn {
+  display: block;
+  margin-left: 200px;
+  margin-top: -47px;
+  font-size: 20px;
+  background-color: #cb0b0b;
+}
+
+#subtitle {
+  text-align: left;
+  color: rgba(169, 108, 18, 0.978);
+  margin-left: 50px;
+  font-size: 25px;
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.nav-item a.nav-link:hover {
+  background-color: #66b3ff;
+  color: white;
+}
