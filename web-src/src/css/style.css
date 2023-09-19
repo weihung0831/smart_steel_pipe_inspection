@@ -68,3 +68,14 @@ table {
   background-color: #66b3ff;
   color: white;
 }
+
+#modbus_status {
+  font-size: 30px;
+  color: #cb0b0b;
+}
+
+#modbus_status_icon {
+  width: 50px;
+  height: 50px;
+  margin-left: 750px;
+}
