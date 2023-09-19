@@ -15,7 +15,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 30px;
   font-size: 20px;
 }
 
@@ -27,9 +27,8 @@ h1 {
 }
 
 table {
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 30px;
-
 }
 
 #power_btn {
