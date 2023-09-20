@@ -115,7 +115,7 @@
       </tbody>
     </table>
     <button id="submitBtn" type="button" class="btn btn-primary btn-lg">
-      Submit
+      送出
     </button>
   </div>
 </template>
