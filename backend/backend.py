@@ -51,7 +51,7 @@ class ModbusCom:
         self.current_state = 0
         self.fake_data = fake_data
 
-    def set_output_state(self, value, activate=True):
+    def set_modbus_output_state(self, value, activate=True):
         reverse_value = 0
         if self.client.is_open:
             if 0 <= value < 8:
@@ -79,7 +79,7 @@ class ModbusCom:
             print("Client not open")
             return False
 
-    def get_input_state(self, value):
+    def read_modbus_input_state(self, value):
         if self.client.is_open:
             register_value = self.client.read_input_registers(0, 1)[0]
             # to 16 bit binary

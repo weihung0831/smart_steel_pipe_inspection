@@ -15,19 +15,19 @@ green_light = 2
 
 try:
     while True:
-        if modbus.get_input_state(8):
-            modbus.set_output_state(green_light, True)
+        if modbus.read_modbus_input_state(8):
+            modbus.set_modbus_output_state(green_light, True)
         else:
-            modbus.set_output_state(green_light, False)
+            modbus.set_modbus_output_state(green_light, False)
 
-        if modbus.get_input_state(9):
+        if modbus.read_modbus_input_state(9):
             if start_time == None:
                 start_time = time.time()
             elif time.time() - start_time >= 0.5:
-                modbus.set_output_state(orange_light, True)
+                modbus.set_modbus_output_state(orange_light, True)
         else:
             start_time = None
-            modbus.set_output_state(orange_light, False)
+            modbus.set_modbus_output_state(orange_light, False)
 
 except KeyboardInterrupt:
     modbus.clear_output()
