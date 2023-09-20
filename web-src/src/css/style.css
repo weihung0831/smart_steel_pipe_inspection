@@ -79,3 +79,7 @@ table {
   height: 50px;
   margin-left: 750px;
 }
+
+#nav-placeholder {
+  height: 30px;
+}

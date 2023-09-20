@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav navbar-center">
           <li class="nav-item active">
@@ -24,5 +24,6 @@
         </ul>
       </div>
     </nav>
+    <div id="nav-placeholder"></div>
   </div>
 </template>
