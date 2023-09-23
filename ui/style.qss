@@ -1,0 +1,27 @@
+QWidget {{
+  font-size: 20px;
+}}
+
+#title {{
+  font-size: 40px;
+}}
+
+#title2 {{
+  font-size: 40px;
+}}
+
+#title3 {{
+  font-size: 40px;
+}}
+
+#title4 {{
+  font-size: 40px;
+}}
+
+#title5 {{
+  font-size: 40px;
+}}
+
+#title6 {{
+  font-size: 40px;
+}}
