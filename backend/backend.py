@@ -1,7 +1,22 @@
-from pyModbusTCP.client import ModbusClient
 import functools
 import logging
+import sys
+from configparser import ConfigParser
 from pathlib import Path
+
+from pyModbusTCP.client import ModbusClient
+
+config = ConfigParser()
+config.read("./config.ini")
+
+try:
+    IP_ADDRESS = config["Settings"]["IP_ADDRESS"]
+    ON_STATE = int(config["Settings"]["ON_STATE"])
+    OFF_STATE = int(config["Settings"]["OFF_STATE"])
+    PLC_INPUT = [i for i in range(0, 16)]
+except KeyError:
+    print("Error: Missing configuration in config.ini")
+    sys.exit(1)
 
 
 class LoggerSetup:
@@ -44,12 +59,11 @@ class LoggerSetup:
 
 @LoggerSetup().log_execution
 class ModbusCom:
-    def __init__(self, ip, fake_data=False):
+    def __init__(self, ip):
         self.ip = ip
         self.client = ModbusClient(self.ip, 502, unit_id=1)
         self.client.open()
         self.current_state = 0
-        self.fake_data = fake_data
 
     def set_modbus_output_state(self, value, activate=True):
         reverse_value = 0
@@ -64,9 +78,12 @@ class ModbusCom:
 
             if activate:
                 self.current_state |= 1 << reverse_value
+                # print(self.current_state)
             else:
                 self.current_state &= ~(1 << reverse_value)
+                # print(self.current_state)
 
+            # print(self.client.write_single_register(0, self.current_state))
             return self.client.write_single_register(0, self.current_state)
         else:
             print("Client not connected")
@@ -90,11 +107,63 @@ class ModbusCom:
             upper_half.reverse()
             lower_half.reverse()
             combined_list = upper_half + lower_half
-            boolean_state = [bool(int(bit)) for bit in combined_list]
-            return boolean_state[value]
+            state = [int(bit) for bit in combined_list]
+            # print(boolean_state[value])
+            # boolean_state = [bool(int(bit)) for bit in combined_list]
+            # return boolean_state[value]
+            return state[value]
         else:
             print("Client not open")
             return None
 
     def disconnect(self):
         self.client.close()
+
+
+class Cylinder:
+    def __init__(self, modbus, plc_input):
+        self.modbus = modbus
+        self.plc_input = plc_input
+
+    def handle(self, state):
+        return self.modbus.set_modbus_output_state(
+            state, self.modbus.read_modbus_input_state(self.plc_input)
+        )
+
+    def unhandle(self, state):
+        return self.modbus.set_modbus_output_state(state, False)
+
+
+@LoggerSetup().log_execution
+class Actuator(Cylinder):
+    def on(self):
+        return self.handle(ON_STATE)
+
+    def off(self):
+        return self.unhandle(OFF_STATE)
+
+
+@LoggerSetup().log_execution
+class ControlBlock:
+    def __init__(self, modbus):
+        self.modbus = modbus
+
+    def create_actuators(self, indices):
+        return [Actuator(self.modbus, PLC_INPUT[i]) for i in indices]
+
+    def a_block(self):
+        actuators = self.create_actuators([0, 1, 2, 3, 6, 7, 4, 5, 8])
+        # TODO: Add control script for a_block
+
+    def b_block(self):
+        actuators = self.create_actuators([0, 1, 2, 3, 6, 7, 4, 5])
+        # TODO: Add control script for b_block
+
+    def c_block(self):
+        actuators = self.create_actuators([0, 1, 2, 3, 6, 7, 4, 5])
+        # TODO: Add control script for c_block
+
+    def test_block(self):
+        actuators = self.create_actuators([i for i in range(0, 16)])
+        actuators[8].on()
+        actuators[9].off()
