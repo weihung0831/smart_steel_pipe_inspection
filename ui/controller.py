@@ -17,6 +17,9 @@ class Controller:
     def _initialize_connections(self):
         self.view.power_btn.clicked.connect(self._handle_power_button_click)
         self.view.stop_btn.clicked.connect(self._handle_stop_button_click)
+        self.view.clean_stopper_cyl_up_btn.clicked.connect(
+            self._handle_block_button_click
+        )
 
     def _handle_power_button_click(self):
         try:
@@ -46,3 +49,11 @@ class Controller:
         status_text = "連線成功 !!!" if is_connected else "連線失敗 !!!"
         self.view.power_status_label.setText(status_text)
 
+    def _handle_block_button_click(self):
+        try:
+            control_block = ControlBlock(self.modbus)
+            while True:
+                control_block.test_block()
+        except Exception as e:
+            print(e)
+            return False
