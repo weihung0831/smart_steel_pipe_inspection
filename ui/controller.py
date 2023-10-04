@@ -19,9 +19,8 @@ class Controller:
     def initialize_ui_connections(self):
         self.view.power_btn.clicked.connect(self.connect_to_modbus)
         self.view.stop_btn.clicked.connect(self.disconnect_modbus_on_stop_click)
-        self.view.clean_stopper_cyl_up_btn.clicked.connect(
-            self.initiate_control_block_testing
-        )
+        self.view.clean_stopper_cyl_up_btn.clicked.connect(self.control_sv1_1)
+        self.view.clean_stopper_cyl_down_btn.clicked.connect(self.control_sv1_2)
 
     def connect_to_modbus(self):
         try:
@@ -39,7 +38,6 @@ class Controller:
         try:
             self.modbus.clear_output()
             self.modbus.disconnect()
-            
             is_closed = not self.modbus.client.is_open
             if is_closed:
                 print("已停止")
@@ -53,12 +51,28 @@ class Controller:
         status_text = "連線成功 !!!" if is_connected else "連線失敗 !!!"
         self.view.power_status_label.setText(status_text)
 
-    def initiate_control_block_testing(self):
+    def control_sv(self, action, value):
         try:
-            control_block = ControlBlock(self.modbus)
-            control_block.action_down()
+            control_block = ModbusActuatorManager(self.modbus)
+            if action == "up":
+                control_block.action_up(value)
+                print(control_block.action_up(value))
+            elif action == "down":
+                control_block.action_down(value)
+                print(control_block.action_down(value))
+            else:
+                print("Invalid action")
+                return False
+
             time.sleep(3)
             self.modbus.clear_output()
+            return True
         except Exception as e:
             print(e)
             return False
+
+    def control_sv1_1(self):
+        return self.control_sv("up", 8)
+
+    def control_sv1_2(self):
+        return self.control_sv("down", 9)

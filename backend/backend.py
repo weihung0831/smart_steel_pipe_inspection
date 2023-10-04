@@ -8,6 +8,7 @@ from pyModbusTCP.client import ModbusClient
 
 config = ConfigParser()
 config.read("./config.ini")
+import time
 
 try:
     IP_ADDRESS = config["Settings"]["IP_ADDRESS"]
@@ -149,34 +150,26 @@ class Actuator(Cylinder):
 
     def off(self):
         return self.unhandle(OFF_STATE)
-    
+
     def down(self):
         return self.handle(OFF_STATE)
 
 
 @LoggerSetup().log_execution
-# The ControlBlock class creates actuators and defines control scripts for different blocks.
-class ControlBlock:
+# The ModbusActuatorManager class allows for the creation of actuators and performing up and down actions on them.
+class ModbusActuatorManager:
     def __init__(self, modbus):
         self.modbus = modbus
 
     def create_actuators(self, indices):
         return [Actuator(self.modbus, PLC_INPUT[i]) for i in indices]
 
-    def a_block(self):
-        actuators = self.create_actuators([0, 1, 2, 3, 6, 7, 4, 5, 8])
-        # TODO: Add control script for a_block
-
-    def b_block(self):
-        actuators = self.create_actuators([0, 1, 2, 3, 6, 7, 4, 5])
-        # TODO: Add control script for b_block
-
-    def c_block(self):
-        actuators = self.create_actuators([0, 1, 2, 3, 6, 7, 4, 5])
-        # TODO: Add control script for c_block
-
-    def action_down(self):
+    def action_up(self, index):
         actuators = self.create_actuators([i for i in range(0, 16)])
-        actuators[8].down()
-        return self.modbus.read_modbus_input_state(PLC_INPUT[8])
-        # actuators[9].on()
+        actuators[index].up()
+        return self.modbus.read_modbus_input_state(PLC_INPUT[index])
+
+    def action_down(self, index):
+        actuators = self.create_actuators([i for i in range(0, 16)])
+        actuators[index].down()
+        return self.modbus.read_modbus_input_state(PLC_INPUT[index])
