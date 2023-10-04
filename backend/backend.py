@@ -57,6 +57,12 @@ class LoggerSetup:
         return wrapper
 
 
+"""
+The `ModbusCom` class is a Python class that provides methods for interacting with a Modbus communication protocol, 
+including setting output states, clearing outputs, reading input states, and disconnecting from the Modbus client.
+"""
+
+
 @LoggerSetup().log_execution
 class ModbusCom:
     def __init__(self, ip):
@@ -120,6 +126,7 @@ class ModbusCom:
         self.client.close()
 
 
+# The `Cylinder` class handles the state of a cylinder using Modbus communication.
 class Cylinder:
     def __init__(self, modbus, plc_input):
         self.modbus = modbus
@@ -135,15 +142,20 @@ class Cylinder:
 
 
 @LoggerSetup().log_execution
+# The Actuator class is a subclass of the Cylinder class and has methods to turn on and off the actuator.
 class Actuator(Cylinder):
-    def on(self):
+    def up(self):
         return self.handle(ON_STATE)
 
     def off(self):
         return self.unhandle(OFF_STATE)
+    
+    def down(self):
+        return self.handle(OFF_STATE)
 
 
 @LoggerSetup().log_execution
+# The ControlBlock class creates actuators and defines control scripts for different blocks.
 class ControlBlock:
     def __init__(self, modbus):
         self.modbus = modbus
@@ -163,7 +175,8 @@ class ControlBlock:
         actuators = self.create_actuators([0, 1, 2, 3, 6, 7, 4, 5])
         # TODO: Add control script for c_block
 
-    def test_block(self):
+    def action_down(self):
         actuators = self.create_actuators([i for i in range(0, 16)])
-        actuators[8].on()
-        actuators[9].off()
+        actuators[8].down()
+        return self.modbus.read_modbus_input_state(PLC_INPUT[8])
+        # actuators[9].on()
