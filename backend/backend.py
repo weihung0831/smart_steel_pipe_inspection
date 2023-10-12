@@ -1,23 +1,9 @@
 import functools
 import logging
-import sys
-from configparser import ConfigParser
+import time
 from pathlib import Path
 
 from pyModbusTCP.client import ModbusClient
-
-config = ConfigParser()
-config.read("./config.ini")
-import time
-
-try:
-    IP_ADDRESS = config["Settings"]["IP_ADDRESS"]
-    ON_STATE = int(config["Settings"]["ON_STATE"])
-    OFF_STATE = int(config["Settings"]["OFF_STATE"])
-    PLC_INPUT = [i for i in range(0, 16)]
-except KeyError:
-    print("Error: Missing configuration in config.ini")
-    sys.exit(1)
 
 
 class LoggerSetup:
@@ -127,49 +113,46 @@ class ModbusCom:
         self.client.close()
 
 
-# The `Cylinder` class handles the state of a cylinder using Modbus communication.
-class Cylinder:
-    def __init__(self, modbus, plc_input):
-        self.modbus = modbus
-        self.plc_input = plc_input
-
-    def handle(self, state):
-        return self.modbus.set_modbus_output_state(
-            state, self.modbus.read_modbus_input_state(self.plc_input)
-        )
-
-    def unhandle(self, state):
-        return self.modbus.set_modbus_output_state(state, False)
-
-
 @LoggerSetup().log_execution
-# The Actuator class is a subclass of the Cylinder class and has methods to turn on and off the actuator.
-class Actuator(Cylinder):
+# The `Actuator` class represents an actuator that can be controlled using Modbus communication
+# protocol, with methods to move the actuator up, down, and turn it off.
+class Actuator:
+    def __init__(
+        self, modbus, up_output, down_output, up_input, down_input, wait_time=0.5
+    ):
+        self.modbus = modbus
+        self.up_output = up_output
+        self.down_output = down_output
+        self.up_input = up_input
+        self.down_input = down_input
+        self.wait_time = wait_time
+
     def up(self):
-        return self.handle(ON_STATE)
+        success = self.modbus.set_modbus_output_state(self.up_output, True)
+        if success:
+            check = self.check_success(self.up_input)
+        return success and check
+
+    def check_success(self, pin):
+        start = time.perf_counter()
+        success = False
+        while True:
+            sensor = self.modbus.read_modbus_input_state(pin)
+            if sensor:
+                success = True
+                break
+            if (time.perf_counter() - start) > self.wait_time:
+                break
+            time.sleep(self.wait_time / 10)
+        return success
 
     def off(self):
-        return self.unhandle(OFF_STATE)
+        state = self.modbus.set_modbus_output_state(self.up_output, False)
+        state &= self.modbus.set_modbus_output_state(self.down_output, False)
+        return state
 
     def down(self):
-        return self.handle(OFF_STATE)
-
-
-@LoggerSetup().log_execution
-# The ModbusActuatorManager class allows for the creation of actuators and performing up and down actions on them.
-class ModbusActuatorManager:
-    def __init__(self, modbus):
-        self.modbus = modbus
-
-    def create_actuators(self, indices):
-        return [Actuator(self.modbus, PLC_INPUT[i]) for i in indices]
-
-    def action_up(self, index):
-        actuators = self.create_actuators([i for i in range(0, 16)])
-        actuators[index].up()
-        return self.modbus.read_modbus_input_state(PLC_INPUT[index])
-
-    def action_down(self, index):
-        actuators = self.create_actuators([i for i in range(0, 16)])
-        actuators[index].down()
-        return self.modbus.read_modbus_input_state(PLC_INPUT[index])
+        success = self.modbus.set_modbus_output_state(self.down_output, True)
+        if success:
+            check = self.check_success(self.down_input)
+        return success and check
