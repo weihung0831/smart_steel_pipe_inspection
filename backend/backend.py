@@ -50,11 +50,10 @@ including setting output states, clearing outputs, reading input states, and dis
 """
 
 
-@LoggerSetup().log_execution
 class ModbusCom:
     def __init__(self, ip):
         self.ip = ip
-        self.client = ModbusClient(self.ip, 502, unit_id=1)
+        self.client = ModbusClient(self.ip, 502, unit_id=1, timeout=1)
         self.client.open()
         self.current_state = 0
 
@@ -71,12 +70,9 @@ class ModbusCom:
 
             if activate:
                 self.current_state |= 1 << reverse_value
-                # print(self.current_state)
             else:
                 self.current_state &= ~(1 << reverse_value)
-                # print(self.current_state)
 
-            # print(self.client.write_single_register(0, self.current_state))
             return self.client.write_single_register(0, self.current_state)
         else:
             print("Client not connected")
@@ -101,7 +97,6 @@ class ModbusCom:
             lower_half.reverse()
             combined_list = upper_half + lower_half
             state = [int(bit) for bit in combined_list]
-            # print(boolean_state[value])
             # boolean_state = [bool(int(bit)) for bit in combined_list]
             # return boolean_state[value]
             return state[value]
