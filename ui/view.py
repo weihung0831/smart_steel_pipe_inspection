@@ -18,9 +18,9 @@ from PySide6.QtCore import (
     QPoint,
     QRect,
     QSize,
+    Qt,
     QTime,
     QUrl,
-    Qt,
 )
 from PySide6.QtGui import (
     QBrush,
@@ -95,6 +95,7 @@ class Ui_MainWindow(object):
 
         self.stop_btn = QPushButton(self.gridLayoutWidget_5)
         self.stop_btn.setObjectName("stop_btn")
+        self.stop_btn.setEnabled(False)
 
         self.gridLayout_18.addWidget(self.stop_btn, 1, 2, 1, 1)
 
@@ -142,6 +143,7 @@ class Ui_MainWindow(object):
 
         self.check_stopper_cyl_up_btn = QPushButton(self.gridLayoutWidget_7)
         self.check_stopper_cyl_up_btn.setObjectName("check_stopper_cyl_up_btn")
+        self.check_stopper_cyl_up_btn.setEnabled(False)
 
         self.gridLayout_22.addWidget(
             self.check_stopper_cyl_up_btn, 4, 2, 1, 1, Qt.AlignHCenter
@@ -157,6 +159,7 @@ class Ui_MainWindow(object):
         self.check_fixed_position_CYL_down_btn.setObjectName(
             "check_fixed_position_CYL_down_btn"
         )
+        self.check_fixed_position_CYL_down_btn.setEnabled(False)
 
         self.gridLayout_22.addWidget(self.check_fixed_position_CYL_down_btn, 6, 4, 1, 1)
 
@@ -164,6 +167,7 @@ class Ui_MainWindow(object):
         self.check_fixed_position_CYL_up_btn.setObjectName(
             "check_fixed_position_CYL_up_btn"
         )
+        self.check_fixed_position_CYL_up_btn.setEnabled(False)
 
         self.gridLayout_22.addWidget(
             self.check_fixed_position_CYL_up_btn, 6, 2, 1, 1, Qt.AlignHCenter
@@ -183,6 +187,7 @@ class Ui_MainWindow(object):
 
         self.check_stopper_cyl_down_btn = QPushButton(self.gridLayoutWidget_7)
         self.check_stopper_cyl_down_btn.setObjectName("check_stopper_cyl_down_btn")
+        self.check_stopper_cyl_down_btn.setEnabled(False)
 
         self.gridLayout_22.addWidget(self.check_stopper_cyl_down_btn, 4, 4, 1, 1)
 
@@ -234,6 +239,7 @@ class Ui_MainWindow(object):
         self.clean_fixed_position_CYL_up_btn.setObjectName(
             "clean_fixed_position_CYL_up_btn"
         )
+        self.clean_fixed_position_CYL_up_btn.setEnabled(False)
 
         self.gridLayout_23.addWidget(
             self.clean_fixed_position_CYL_up_btn, 5, 2, 1, 1, Qt.AlignHCenter
@@ -277,6 +283,7 @@ class Ui_MainWindow(object):
 
         self.clean_stopper_cyl_up_btn = QPushButton(self.gridLayoutWidget_6)
         self.clean_stopper_cyl_up_btn.setObjectName("clean_stopper_cyl_up_btn")
+        self.clean_stopper_cyl_up_btn.setEnabled(False)
 
         self.gridLayout_23.addWidget(
             self.clean_stopper_cyl_up_btn, 3, 2, 1, 1, Qt.AlignHCenter
@@ -286,11 +293,13 @@ class Ui_MainWindow(object):
         self.clean_fixed_position_CYL_down_btn.setObjectName(
             "clean_fixed_position_CYL_down_btn"
         )
+        self.clean_fixed_position_CYL_down_btn.setEnabled(False)
 
         self.gridLayout_23.addWidget(self.clean_fixed_position_CYL_down_btn, 5, 4, 1, 1)
 
         self.clean_stopper_cyl_down_btn = QPushButton(self.gridLayoutWidget_6)
         self.clean_stopper_cyl_down_btn.setObjectName("clean_stopper_cyl_down_btn")
+        self.clean_stopper_cyl_down_btn.setEnabled(False)
 
         self.gridLayout_23.addWidget(self.clean_stopper_cyl_down_btn, 3, 4, 1, 1)
 
@@ -314,6 +323,7 @@ class Ui_MainWindow(object):
         self.gridLayout_24.setContentsMargins(0, 0, 0, 0)
         self.pomp_check_CYL_open_btn = QPushButton(self.gridLayoutWidget_8)
         self.pomp_check_CYL_open_btn.setObjectName("pomp_check_CYL_open_btn")
+        self.pomp_check_CYL_open_btn.setEnabled(False)
 
         self.gridLayout_24.addWidget(self.pomp_check_CYL_open_btn, 6, 2, 1, 1)
 
@@ -331,6 +341,7 @@ class Ui_MainWindow(object):
 
         self.pomp_check_CYL_close_btn = QPushButton(self.gridLayoutWidget_8)
         self.pomp_check_CYL_close_btn.setObjectName("pomp_check_CYL_close_btn")
+        self.pomp_check_CYL_close_btn.setEnabled(False)
 
         self.gridLayout_24.addWidget(self.pomp_check_CYL_close_btn, 6, 5, 1, 1)
 
@@ -350,6 +361,7 @@ class Ui_MainWindow(object):
 
         self.pomp_power_close_btn = QPushButton(self.gridLayoutWidget_8)
         self.pomp_power_close_btn.setObjectName("pomp_power_close_btn")
+        self.pomp_power_close_btn.setEnabled(False)
 
         self.gridLayout_24.addWidget(self.pomp_power_close_btn, 4, 5, 1, 1)
 
@@ -367,6 +379,7 @@ class Ui_MainWindow(object):
 
         self.pomp_power_open_btn = QPushButton(self.gridLayoutWidget_8)
         self.pomp_power_open_btn.setObjectName("pomp_power_open_btn")
+        self.pomp_power_open_btn.setEnabled(False)
 
         self.gridLayout_24.addWidget(
             self.pomp_power_open_btn, 4, 2, 1, 1, Qt.AlignHCenter
@@ -425,6 +438,7 @@ class Ui_MainWindow(object):
 
         self.airValue_value_open_btn = QPushButton(self.gridLayoutWidget_9)
         self.airValue_value_open_btn.setObjectName("airValue_value_open_btn")
+        self.airValue_value_open_btn.setEnabled(False)
 
         self.gridLayout_25.addWidget(
             self.airValue_value_open_btn, 4, 2, 1, 1, Qt.AlignHCenter
@@ -432,6 +446,7 @@ class Ui_MainWindow(object):
 
         self.air_value_close_btn = QPushButton(self.gridLayoutWidget_9)
         self.air_value_close_btn.setObjectName("air_value_close_btn")
+        self.air_value_close_btn.setEnabled(False)
 
         self.gridLayout_25.addWidget(self.air_value_close_btn, 6, 4, 1, 1)
 
@@ -443,6 +458,7 @@ class Ui_MainWindow(object):
 
         self.air_value_open_btn = QPushButton(self.gridLayoutWidget_9)
         self.air_value_open_btn.setObjectName("air_value_open_btn")
+        self.air_value_open_btn.setEnabled(False)
 
         self.gridLayout_25.addWidget(self.air_value_open_btn, 6, 2, 1, 1)
 
@@ -456,6 +472,7 @@ class Ui_MainWindow(object):
 
         self.airValue_value_close_btn = QPushButton(self.gridLayoutWidget_9)
         self.airValue_value_close_btn.setObjectName("airValue_value_close_btn")
+        self.airValue_value_close_btn.setEnabled(False)
 
         self.gridLayout_25.addWidget(self.airValue_value_close_btn, 4, 4, 1, 1)
 
