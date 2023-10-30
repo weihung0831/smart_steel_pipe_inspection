@@ -7,7 +7,7 @@ from pyModbusTCP.client import ModbusClient
 
 
 class LoggerSetup:
-    def __init__(self, log_path: str = "../logs/app.log"):
+    def __init__(self, log_path: str = "logs/app.log"):
         self.log_path = log_path
         self._setup_directory()
         self._setup_logging()
@@ -40,7 +40,6 @@ class LoggerSetup:
                 raise e
             finally:
                 logging.info(f"Finished {func.__name__} execution")
-
         return wrapper
 
 
@@ -50,6 +49,7 @@ including setting output states, clearing outputs, reading input states, and dis
 """
 
 
+@LoggerSetup().log_execution
 class ModbusCom:
     def __init__(self, ip):
         self.ip = ip
