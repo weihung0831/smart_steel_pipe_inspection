@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'untitledHuoYfW.ui'
+## Form generated from reading UI file 'untitledNUFnwk.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.5.0
 ##
@@ -18,9 +18,9 @@ from PySide6.QtCore import (
     QPoint,
     QRect,
     QSize,
-    Qt,
     QTime,
     QUrl,
+    Qt,
 )
 from PySide6.QtGui import (
     QBrush,
@@ -83,21 +83,15 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.gridLayoutWidget_5 = QWidget(self.frame)
         self.gridLayoutWidget_5.setObjectName("gridLayoutWidget_5")
-        self.gridLayoutWidget_5.setGeometry(QRect(20, 100, 190, 52))
+        self.gridLayoutWidget_5.setGeometry(QRect(20, 110, 491, 26))
         self.gridLayout_18 = QGridLayout(self.gridLayoutWidget_5)
         self.gridLayout_18.setObjectName("gridLayout_18")
         self.gridLayout_18.setContentsMargins(0, 0, 0, 0)
-        self.horizontalSpacer_5 = QSpacerItem(
-            10, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
+        self.power_btn = QPushButton(self.gridLayoutWidget_5)
+        self.power_btn.setObjectName("power_btn")
+        self.power_btn.setEnabled(True)
 
-        self.gridLayout_18.addItem(self.horizontalSpacer_5, 1, 3, 1, 1)
-
-        self.stop_btn = QPushButton(self.gridLayoutWidget_5)
-        self.stop_btn.setObjectName("stop_btn")
-        self.stop_btn.setEnabled(False)
-
-        self.gridLayout_18.addWidget(self.stop_btn, 1, 2, 1, 1)
+        self.gridLayout_18.addWidget(self.power_btn, 1, 0, 1, 1)
 
         self.horizontalSpacer_4 = QSpacerItem(
             10, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
@@ -105,10 +99,42 @@ class Ui_MainWindow(object):
 
         self.gridLayout_18.addItem(self.horizontalSpacer_4, 1, 1, 1, 1)
 
-        self.power_btn = QPushButton(self.gridLayoutWidget_5)
-        self.power_btn.setObjectName("power_btn")
+        self.stop_btn = QPushButton(self.gridLayoutWidget_5)
+        self.stop_btn.setObjectName("stop_btn")
+        self.stop_btn.setEnabled(False)
+        self.stop_btn.setCheckable(False)
 
-        self.gridLayout_18.addWidget(self.power_btn, 1, 0, 1, 1)
+        self.gridLayout_18.addWidget(self.stop_btn, 1, 2, 1, 1)
+
+        self.auto_mode_btn = QPushButton(self.gridLayoutWidget_5)
+        self.auto_mode_btn.setObjectName("auto_mode_btn")
+        self.auto_mode_btn.setEnabled(False)
+
+        self.gridLayout_18.addWidget(self.auto_mode_btn, 1, 5, 1, 1)
+
+        self.horizontalSpacer_11 = QSpacerItem(
+            10, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_18.addItem(self.horizontalSpacer_11, 1, 6, 1, 1)
+
+        self.manual_mode_btn = QPushButton(self.gridLayoutWidget_5)
+        self.manual_mode_btn.setObjectName("manual_mode_btn")
+        self.manual_mode_btn.setEnabled(False)
+
+        self.gridLayout_18.addWidget(self.manual_mode_btn, 1, 4, 1, 1)
+
+        self.horizontalSpacer_5 = QSpacerItem(
+            10, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_18.addItem(self.horizontalSpacer_5, 1, 3, 1, 1)
+
+        self.exit_btn = QPushButton(self.gridLayoutWidget_5)
+        self.exit_btn.setObjectName("exit_btn")
+        self.exit_btn.setEnabled(False)
+
+        self.gridLayout_18.addWidget(self.exit_btn, 1, 7, 1, 1)
 
         self.gridLayoutWidget_7 = QWidget(self.frame)
         self.gridLayoutWidget_7.setObjectName("gridLayoutWidget_7")
@@ -510,7 +536,7 @@ class Ui_MainWindow(object):
 
         self.power_status_label = QLabel(self.frame)
         self.power_status_label.setObjectName("power_status_label")
-        self.power_status_label.setGeometry(QRect(20, 60, 191, 31))
+        self.power_status_label.setGeometry(QRect(20, 60, 431, 31))
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QWidget()
         self.tab_2.setObjectName("tab_2")
@@ -1415,17 +1441,28 @@ class Ui_MainWindow(object):
                 "MainWindow", "\u92fc\u7ba1\u54c1\u8cea\u6aa2\u9a57\u7cfb\u7d71", None
             )
         )
-        self.stop_btn.setText(
-            QCoreApplication.translate("MainWindow", "\u505c\u6b62", None)
-        )
         self.power_btn.setText(
             QCoreApplication.translate("MainWindow", "\u96fb\u6e90", None)
         )
+        self.stop_btn.setText(
+            QCoreApplication.translate("MainWindow", "\u505c\u6b62", None)
+        )
+        self.auto_mode_btn.setText(
+            QCoreApplication.translate("MainWindow", "\u81ea\u52d5\u6a21\u5f0f", None)
+        )
+        self.manual_mode_btn.setText(
+            QCoreApplication.translate("MainWindow", "\u624b\u52d5\u6a21\u5f0f", None)
+        )
+        self.exit_btn.setText(
+            QCoreApplication.translate("MainWindow", "\u9000\u51fa", None)
+        )
         self.check_label.setText(
-            QCoreApplication.translate("MainWindow", "\u6aa2\u67e5", None)
+            QCoreApplication.translate("MainWindow", "\u6aa2\u67e5\u88fd\u7a0b", None)
         )
         self.check_fixed_position_CYL_label.setText(
-            QCoreApplication.translate("MainWindow", "\u5b9a\u4f4d\u7f6e CYL", None)
+            QCoreApplication.translate(
+                "MainWindow", "Position \u78c1\u7c27\u958b\u95dc", None
+            )
         )
         self.check_stopper_cyl_up_btn.setText(
             QCoreApplication.translate("MainWindow", "\u4e0a\u5347", None)
@@ -1440,19 +1477,25 @@ class Ui_MainWindow(object):
             QCoreApplication.translate("MainWindow", "\u4e0b\u964d", None)
         )
         self.check_stopper_cyl_label.setText(
-            QCoreApplication.translate("MainWindow", "STOPPER CYL", None)
+            QCoreApplication.translate(
+                "MainWindow", "STOPPER \u78c1\u7c27\u958b\u95dc", None
+            )
         )
         self.clean_fixed_position_CYL_up_btn.setText(
             QCoreApplication.translate("MainWindow", "\u4e0a\u5347", None)
         )
         self.clean_stopper_cyl_label.setText(
-            QCoreApplication.translate("MainWindow", "STOPPER CYL", None)
+            QCoreApplication.translate(
+                "MainWindow", "STOPPER \u78c1\u7c27\u958b\u95dc", None
+            )
         )
         self.clean_fixed_position_CYL_label.setText(
-            QCoreApplication.translate("MainWindow", "\u5b9a\u4f4d\u7f6e CYL", None)
+            QCoreApplication.translate(
+                "MainWindow", "Position \u78c1\u7c27\u958b\u95dc", None
+            )
         )
         self.clean_label.setText(
-            QCoreApplication.translate("MainWindow", "\u6d17\u6de8", None)
+            QCoreApplication.translate("MainWindow", "\u6e05\u6d17\u88fd\u7a0b", None)
         )
         self.clean_stopper_cyl_up_btn.setText(
             QCoreApplication.translate("MainWindow", "\u4e0a\u5347", None)
@@ -1466,7 +1509,7 @@ class Ui_MainWindow(object):
         self.pomp_check_CYL_open_btn.setText(
             QCoreApplication.translate("MainWindow", "\u6253\u958b", None)
         )
-        self.pomp_label.setText(QCoreApplication.translate("MainWindow", "POMP", None))
+        self.pomp_label.setText(QCoreApplication.translate("MainWindow", "PUMP", None))
         self.pomp_power_label.setText(
             QCoreApplication.translate("MainWindow", "\u96fb\u6e90", None)
         )
@@ -1474,7 +1517,7 @@ class Ui_MainWindow(object):
             QCoreApplication.translate("MainWindow", "\u95dc\u9589", None)
         )
         self.pomp_check_CYL_label.setText(
-            QCoreApplication.translate("MainWindow", "\u6aa2\u67e5 CYL", None)
+            QCoreApplication.translate("MainWindow", "\u96f7\u5c04\u6a5f\u69cb", None)
         )
         self.pomp_power_close_btn.setText(
             QCoreApplication.translate("MainWindow", "\u95dc\u9589", None)
@@ -1492,19 +1535,19 @@ class Ui_MainWindow(object):
             QCoreApplication.translate("MainWindow", "\u95dc\u9589", None)
         )
         self.air_value_label.setText(
-            QCoreApplication.translate("MainWindow", "AIR VALVE", None)
+            QCoreApplication.translate("MainWindow", "\u5439\u6c23", None)
         )
         self.air_value_open_btn.setText(
             QCoreApplication.translate("MainWindow", "\u6253\u958b", None)
         )
         self.airValue_value_label.setText(
-            QCoreApplication.translate("MainWindow", "VALVE", None)
+            QCoreApplication.translate("MainWindow", "\u96fb\u78c1\u95a5", None)
         )
         self.airValue_value_close_btn.setText(
             QCoreApplication.translate("MainWindow", "\u95dc\u9589", None)
         )
         self.air_value_title_label.setText(
-            QCoreApplication.translate("MainWindow", "Air Value", None)
+            QCoreApplication.translate("MainWindow", "\u96fb\u78c1\u95a5", None)
         )
         self.power_status_label.setText("")
         self.tabWidget.setTabText(

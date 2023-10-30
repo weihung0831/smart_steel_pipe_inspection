@@ -78,29 +78,19 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>100</y>
-         <width>190</width>
-         <height>52</height>
+         <y>110</y>
+         <width>491</width>
+         <height>26</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_18">
-        <item row="1" column="3">
-         <spacer name="horizontalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="power_btn">
+          <property name="enabled">
+           <bool>true</bool>
           </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>10</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="1" column="2">
-         <widget class="QPushButton" name="stop_btn">
           <property name="text">
-           <string>停止</string>
+           <string>電源</string>
           </property>
          </widget>
         </item>
@@ -117,10 +107,72 @@
           </property>
          </spacer>
         </item>
-        <item row="1" column="0">
-         <widget class="QPushButton" name="power_btn">
+        <item row="1" column="2">
+         <widget class="QPushButton" name="stop_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
-           <string>電源</string>
+           <string>停止</string>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="5">
+         <widget class="QPushButton" name="auto_mode_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>自動模式</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="6">
+         <spacer name="horizontalSpacer_11">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="4">
+         <widget class="QPushButton" name="manual_mode_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>手動模式</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="7">
+         <widget class="QPushButton" name="exit_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>退出</string>
           </property>
          </widget>
         </item>
@@ -158,7 +210,7 @@
            </font>
           </property>
           <property name="text">
-           <string>檢查</string>
+           <string>檢查製程</string>
           </property>
          </widget>
         </item>
@@ -171,12 +223,15 @@
            </font>
           </property>
           <property name="text">
-           <string>定位置 CYL</string>
+           <string>Position 磁簧開關</string>
           </property>
          </widget>
         </item>
         <item row="4" column="2" alignment="Qt::AlignHCenter">
          <widget class="QPushButton" name="check_stopper_cyl_up_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>上升</string>
           </property>
@@ -197,6 +252,9 @@
         </item>
         <item row="6" column="4">
          <widget class="QPushButton" name="check_fixed_position_CYL_down_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>下降</string>
           </property>
@@ -204,6 +262,9 @@
         </item>
         <item row="6" column="2" alignment="Qt::AlignHCenter">
          <widget class="QPushButton" name="check_fixed_position_CYL_up_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>上升</string>
           </property>
@@ -237,6 +298,9 @@
         </item>
         <item row="4" column="4">
          <widget class="QPushButton" name="check_stopper_cyl_down_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>下降</string>
           </property>
@@ -264,7 +328,7 @@
            </font>
           </property>
           <property name="text">
-           <string>STOPPER CYL</string>
+           <string>STOPPER 磁簧開關</string>
           </property>
          </widget>
         </item>
@@ -334,6 +398,9 @@
         </item>
         <item row="5" column="2" alignment="Qt::AlignHCenter">
          <widget class="QPushButton" name="clean_fixed_position_CYL_up_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>上升</string>
           </property>
@@ -348,7 +415,7 @@
            </font>
           </property>
           <property name="text">
-           <string>STOPPER CYL</string>
+           <string>STOPPER 磁簧開關</string>
           </property>
          </widget>
         </item>
@@ -361,7 +428,7 @@
            </font>
           </property>
           <property name="text">
-           <string>定位置 CYL</string>
+           <string>Position 磁簧開關</string>
           </property>
          </widget>
         </item>
@@ -387,7 +454,7 @@
            </font>
           </property>
           <property name="text">
-           <string>洗淨</string>
+           <string>清洗製程</string>
           </property>
          </widget>
         </item>
@@ -406,6 +473,9 @@
         </item>
         <item row="3" column="2" alignment="Qt::AlignHCenter">
          <widget class="QPushButton" name="clean_stopper_cyl_up_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>上升</string>
           </property>
@@ -413,6 +483,9 @@
         </item>
         <item row="5" column="4">
          <widget class="QPushButton" name="clean_fixed_position_CYL_down_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>下降</string>
           </property>
@@ -420,6 +493,9 @@
         </item>
         <item row="3" column="4">
          <widget class="QPushButton" name="clean_stopper_cyl_down_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>下降</string>
           </property>
@@ -465,6 +541,9 @@
        <layout class="QGridLayout" name="gridLayout_24">
         <item row="6" column="2">
          <widget class="QPushButton" name="pomp_check_CYL_open_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>打開</string>
           </property>
@@ -479,7 +558,7 @@
            </font>
           </property>
           <property name="text">
-           <string>POMP</string>
+           <string>PUMP</string>
           </property>
          </widget>
         </item>
@@ -498,6 +577,9 @@
         </item>
         <item row="6" column="5">
          <widget class="QPushButton" name="pomp_check_CYL_close_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>關閉</string>
           </property>
@@ -512,7 +594,7 @@
            </font>
           </property>
           <property name="text">
-           <string>檢查 CYL</string>
+           <string>雷射機構</string>
           </property>
          </widget>
         </item>
@@ -531,6 +613,9 @@
         </item>
         <item row="4" column="5">
          <widget class="QPushButton" name="pomp_power_close_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>關閉</string>
           </property>
@@ -564,6 +649,9 @@
         </item>
         <item row="4" column="2" alignment="Qt::AlignHCenter">
          <widget class="QPushButton" name="pomp_power_open_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>打開</string>
           </property>
@@ -673,6 +761,9 @@
         </item>
         <item row="4" column="2" alignment="Qt::AlignHCenter">
          <widget class="QPushButton" name="airValue_value_open_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>打開</string>
           </property>
@@ -680,6 +771,9 @@
         </item>
         <item row="6" column="4">
          <widget class="QPushButton" name="air_value_close_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>關閉</string>
           </property>
@@ -694,12 +788,15 @@
            </font>
           </property>
           <property name="text">
-           <string>AIR VALVE</string>
+           <string>吹氣</string>
           </property>
          </widget>
         </item>
         <item row="6" column="2">
          <widget class="QPushButton" name="air_value_open_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>打開</string>
           </property>
@@ -714,12 +811,15 @@
            </font>
           </property>
           <property name="text">
-           <string>VALVE</string>
+           <string>電磁閥</string>
           </property>
          </widget>
         </item>
         <item row="4" column="4">
          <widget class="QPushButton" name="airValue_value_close_btn">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>關閉</string>
           </property>
@@ -760,7 +860,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Air Value</string>
+           <string>電磁閥</string>
           </property>
          </widget>
         </item>
@@ -797,7 +897,7 @@
         <rect>
          <x>20</x>
          <y>60</y>
-         <width>191</width>
+         <width>431</width>
          <height>31</height>
         </rect>
        </property>
