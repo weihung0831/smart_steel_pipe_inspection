@@ -46,11 +46,17 @@ class MainController:
 
     def connect_to_modbus(self):
         try:
-            if not self.modbus.client.is_open:
+            if self.modbus.client.is_open:
                 self.modbus = ModbusCom(IP_ADDRESS)
-
-            self.refresh_connection_status(self.modbus.client.is_open)
-            return self.modbus.client.is_open
+                print("已連線")
+                self.view.power_status_label.setText("已連線")
+                return True
+            else:
+                self.modbus = ModbusCom(IP_ADDRESS)
+                print("連線失敗 !!!")
+                self.view.power_status_label.setText("連線失敗 !!!")
+                # self.refresh_connection_status(self.modbus.client.is_open)
+                return False
         except Exception as e:
             self._log_and_update_status(e, "連線異常 !!!")
             return False
@@ -67,10 +73,6 @@ class MainController:
         except Exception as e:
             self._log_and_update_status(e, "停止異常 !!!")
             return False
-
-    def refresh_connection_status(self, is_connected):
-        status_text = "連線成功 !!!" if is_connected else "連線失敗 !!!"
-        self.view.power_status_label.setText(status_text)
 
 
 if __name__ == "__main__":
