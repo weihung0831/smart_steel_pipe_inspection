@@ -1,3 +1,4 @@
+import socket
 import sys
 from configparser import ConfigParser
 from typing import Any
@@ -8,10 +9,10 @@ from qt_material import apply_stylesheet
 from Controller.CylinderController import CylinderController
 
 sys.path.append("../ui/")
-from backend import ModbusCom, LoggerSetup
+from backend import LoggerSetup, ModbusCom
+from get_keyence_sensor_data import GetKeyenceSensorData
 from ui.view import Ui_MainWindow
 
-sys.path.append("../backend/")
 config = ConfigParser()
 config.read("./config.ini")
 
@@ -30,6 +31,21 @@ class MainController:
         self.modbus = ModbusCom(IP_ADDRESS)
         self.initialize_ui_connections()
         self.initialize_cylinder_connections()
+        # self.show_keyence_data()
+        self.collect_keyence_data_controller = GetKeyenceSensorData(
+            "192.168.10.10", 8500
+        )
+        self.collect_keyence_data_controller.data_signal.connect(
+            self.update_keyence_data
+        )
+        self.collect_keyence_data_controller.start()
+
+    @LoggerSetup().log_execution
+    def update_keyence_data(self, result):
+        self.view.end_face_angle_measured_value_lineEdit.setText(str(result[0]))
+        self.view.right_angle_degree_measured_value_lineEdit.setText(str(result[1]))
+        self.view.end_face_width_measured_value_lineEdit.setText(str(result[2]))
+        print(f"端面角度平均值: {result[0]}, 直角度平均值: {result[1]}, 端面寬度平均值: {result[2]}")
 
     @LoggerSetup().log_execution
     def initialize_cylinder_connections(self):
