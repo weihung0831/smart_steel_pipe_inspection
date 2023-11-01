@@ -26,11 +26,11 @@ class GetKeyenceSensorData(QThread):
     def connect_keyence_sensor(self):
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client_socket.connect((self.host, self.port))
-        print("連線成功")
+        print("Keyence Sensor 連線成功")
         return client_socket
 
     def collect_keyence_sensor_data(self, client_socket):
-        end_face_angle, right_angle, end_face_width = [], [], []
+        end_face_angle, right_angle, end_face_width, detection_value = [], [], [], []
         for i in range(3):
             data = client_socket.recv(1024)
             data = data.decode("utf-8")
@@ -40,10 +40,12 @@ class GetKeyenceSensorData(QThread):
             end_face_angle.append(data_float[0])
             right_angle.append(data_float[1])
             end_face_width.append(data_float[2])
+            detection_value.append(data_float[3])
         result = [
             np.mean(end_face_angle),
             np.mean(right_angle),
             np.mean(end_face_width),
+            np.mean(detection_value),
         ]
         result = [round(i, 2) for i in result]
         return result

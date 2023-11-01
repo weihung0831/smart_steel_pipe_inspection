@@ -19,7 +19,7 @@ class MainController:
         self.modbus = ModbusCom(self.ip_address)
         self.initialize_ui_connections()
         self.initialize_cylinder_connections()
-        self.initialize_keyence_sensor_connections()
+        self.initialize_keyence_sensor_connections("192.168.10.10", 8500)
 
     def initialize_cylinder_connections(self):
         self.actuatorController = CylinderController(modbus=self.modbus)
@@ -35,10 +35,8 @@ class MainController:
         self.view.power_btn.clicked.connect(self.connect_to_modbus)
         self.view.stop_btn.clicked.connect(self.disconnect_modbus_on_stop_click)
 
-    def initialize_keyence_sensor_connections(self):
-        self.collect_keyence_data_controller = GetKeyenceSensorData(
-            "192.168.10.10", 8500
-        )
+    def initialize_keyence_sensor_connections(self, host, port):
+        self.collect_keyence_data_controller = GetKeyenceSensorData(host, port)
         self.collect_keyence_data_controller.data_signal.connect(
             self.update_keyence_data
         )
@@ -152,9 +150,13 @@ class MainController:
 
     def update_keyence_data(self, result):
         self.view.end_face_angle_measured_value_lineEdit.setText(str(result[0]))
-        self.view.right_angle_degree_measured_value_lineEdit.setText(str(result[1]))
         self.view.end_face_width_measured_value_lineEdit.setText(str(result[2]))
-        # print(f"端面角度平均值: {result[0]}, 直角度平均值: {result[1]}, 端面寬度平均值: {result[2]}")
+        self.view.right_angle_degree_measured_value_lineEdit.setText(str(result[1]))
+        result[3] = "OK" if result[3] == 0.0 else "NG"
+        self.view.end_face_angle_detection_value_lineEdit.setText(result[3])
+        self.view.end_face_width_detection_value_lineEdit.setText(result[3])
+        self.view.right_angle_degree_detection_value_lineEdit.setText(result[3])
+        print(f"端面角度平均值: {result[0]}, 直角度平均值: {result[1]}, 端面寬度平均值: {result[2]}, 檢測值: {result[3]}")
 
 
 if __name__ == "__main__":

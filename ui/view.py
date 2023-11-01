@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'untitledNUFnwk.ui'
+## Form generated from reading UI file 'untitledftddlm.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.5.0
 ##
@@ -585,11 +585,15 @@ class Ui_MainWindow(object):
             self.total_production_ng_label_lineEdit, 13, 7, 1, 1
         )
 
-        self.lineEdit_6 = QLineEdit(self.frame_2)
-        self.lineEdit_6.setObjectName("lineEdit_6")
-        self.lineEdit_6.setReadOnly(True)
+        self.end_face_width_detection_value_lineEdit = QLineEdit(self.frame_2)
+        self.end_face_width_detection_value_lineEdit.setObjectName(
+            "end_face_width_detection_value_lineEdit"
+        )
+        self.end_face_width_detection_value_lineEdit.setReadOnly(True)
 
-        self.gridLayout_3.addWidget(self.lineEdit_6, 7, 7, 1, 1)
+        self.gridLayout_3.addWidget(
+            self.end_face_width_detection_value_lineEdit, 7, 7, 1, 1
+        )
 
         self.verticalSpacer_19 = QSpacerItem(
             20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
@@ -767,11 +771,15 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.total_production_count_lineEdit, 13, 5, 1, 1)
 
-        self.lineEdit_5 = QLineEdit(self.frame_2)
-        self.lineEdit_5.setObjectName("lineEdit_5")
-        self.lineEdit_5.setReadOnly(True)
+        self.end_face_angle_detection_value_lineEdit = QLineEdit(self.frame_2)
+        self.end_face_angle_detection_value_lineEdit.setObjectName(
+            "end_face_angle_detection_value_lineEdit"
+        )
+        self.end_face_angle_detection_value_lineEdit.setReadOnly(True)
 
-        self.gridLayout_3.addWidget(self.lineEdit_5, 5, 7, 1, 1)
+        self.gridLayout_3.addWidget(
+            self.end_face_angle_detection_value_lineEdit, 5, 7, 1, 1
+        )
 
         self.verticalSpacer_23 = QSpacerItem(
             20, 30, QSizePolicy.Minimum, QSizePolicy.Expanding
@@ -785,11 +793,15 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addItem(self.horizontalSpacer_23, 0, 8, 1, 1)
 
-        self.lineEdit_8 = QLineEdit(self.frame_2)
-        self.lineEdit_8.setObjectName("lineEdit_8")
-        self.lineEdit_8.setReadOnly(True)
+        self.right_angle_degree_detection_value_lineEdit = QLineEdit(self.frame_2)
+        self.right_angle_degree_detection_value_lineEdit.setObjectName(
+            "right_angle_degree_detection_value_lineEdit"
+        )
+        self.right_angle_degree_detection_value_lineEdit.setReadOnly(True)
 
-        self.gridLayout_3.addWidget(self.lineEdit_8, 9, 7, 1, 1)
+        self.gridLayout_3.addWidget(
+            self.right_angle_degree_detection_value_lineEdit, 9, 7, 1, 1
+        )
 
         self.right_angle_degree_label = QLabel(self.frame_2)
         self.right_angle_degree_label.setObjectName("right_angle_degree_label")
@@ -1429,7 +1441,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
 
         QMetaObject.connectSlotsByName(MainWindow)
 
