@@ -1,53 +1,26 @@
-import socket
 import sys
-from configparser import ConfigParser
-from typing import Any
 
 from PySide6.QtWidgets import QApplication, QMainWindow
 from qt_material import apply_stylesheet
 
-from Controller.CylinderController import CylinderController
+from connect_modbus import ModbusCom
+from control_sensor import CylinderController
+from get_keyence_sensor_data import GetKeyenceSensorData
 
 sys.path.append("../ui/")
-from backend import LoggerSetup, ModbusCom
-from get_keyence_sensor_data import GetKeyenceSensorData
 from ui.view import Ui_MainWindow
 
-config = ConfigParser()
-config.read("./config.ini")
 
-try:
-    IP_ADDRESS = config["Settings"]["IP_ADDRESS"]
-except KeyError:
-    print("Error: Missing configuration in config.ini")
-    sys.exit(1)
-
-
-@LoggerSetup().log_execution
 class MainController:
     def __init__(self, MainWindow):
         self.view = Ui_MainWindow()
         self.view.setupUi(MainWindow)
-        self.modbus = ModbusCom(IP_ADDRESS)
+        self.ip_address = "192.168.3.5"
+        self.modbus = ModbusCom(self.ip_address)
         self.initialize_ui_connections()
         self.initialize_cylinder_connections()
-        # self.show_keyence_data()
-        self.collect_keyence_data_controller = GetKeyenceSensorData(
-            "192.168.10.10", 8500
-        )
-        self.collect_keyence_data_controller.data_signal.connect(
-            self.update_keyence_data
-        )
-        self.collect_keyence_data_controller.start()
+        self.initialize_keyence_sensor_connections()
 
-    @LoggerSetup().log_execution
-    def update_keyence_data(self, result):
-        self.view.end_face_angle_measured_value_lineEdit.setText(str(result[0]))
-        self.view.right_angle_degree_measured_value_lineEdit.setText(str(result[1]))
-        self.view.end_face_width_measured_value_lineEdit.setText(str(result[2]))
-        print(f"端面角度平均值: {result[0]}, 直角度平均值: {result[1]}, 端面寬度平均值: {result[2]}")
-
-    @LoggerSetup().log_execution
     def initialize_cylinder_connections(self):
         self.actuatorController = CylinderController(modbus=self.modbus)
         self.actuatorController.start()
@@ -58,16 +31,23 @@ class MainController:
             self.actuatorController.control_cyl_stopper_a_down
         )
 
-    @LoggerSetup().log_execution
     def initialize_ui_connections(self):
         self.view.power_btn.clicked.connect(self.connect_to_modbus)
         self.view.stop_btn.clicked.connect(self.disconnect_modbus_on_stop_click)
 
-    @LoggerSetup().log_execution
+    def initialize_keyence_sensor_connections(self):
+        self.collect_keyence_data_controller = GetKeyenceSensorData(
+            "192.168.10.10", 8500
+        )
+        self.collect_keyence_data_controller.data_signal.connect(
+            self.update_keyence_data
+        )
+        self.collect_keyence_data_controller.start()
+
     def connect_to_modbus(self):
         try:
             if self.modbus.client.is_open:
-                self.modbus = ModbusCom(IP_ADDRESS)
+                self.modbus = ModbusCom(self.ip_address)
                 print("已連線")
                 self.view.power_status_label.setText("已連線")
 
@@ -84,7 +64,7 @@ class MainController:
                 self.view.exit_btn.clicked.connect(self.exit_auto_mode_btn)
                 return True
             else:
-                self.modbus = ModbusCom(IP_ADDRESS)
+                self.modbus = ModbusCom(self.ip_address)
                 print("連線失敗 !!!")
                 self.view.power_status_label.setText("連線失敗 !!!")
                 return False
@@ -92,8 +72,7 @@ class MainController:
             self.view.power_status_label.setText("連線出錯！！！")
             return False
 
-    @LoggerSetup().log_execution
-    def action_setting_detail_btn_status(self, avtivate):
+    def setting_detail_btn_status(self, avtivate):
         self.view.clean_stopper_cyl_up_btn.setEnabled(avtivate)
         self.view.clean_stopper_cyl_down_btn.setEnabled(avtivate)
         self.view.clean_fixed_position_CYL_up_btn.setEnabled(avtivate)
@@ -111,20 +90,18 @@ class MainController:
         self.view.air_value_open_btn.setEnabled(avtivate)
         self.view.air_value_close_btn.setEnabled(avtivate)
 
-    @LoggerSetup().log_execution
     def on_manual_mode_btn_clicked(self):
         try:
             print("手動模式")
             self.view.manual_mode_btn.setEnabled(False)
             self.view.auto_mode_btn.setEnabled(False)
             self.view.exit_btn.setEnabled(True)
-            self.action_setting_detail_btn_status(True)
+            self.setting_detail_btn_status(True)
             return True
         except Exception as e:
             self.view.power_status_label.setText("連線出錯！！！")
             return False
 
-    @LoggerSetup().log_execution
     def on_auto_mode_btn_clicked(self):
         try:
             print("自動模式")
@@ -136,27 +113,24 @@ class MainController:
             self.view.power_status_label.setText("連線出錯！！！")
             return False
 
-    @LoggerSetup().log_execution
     def exit_manual_mode_btn(self):
         try:
             self.view.exit_btn.setEnabled(False)
             self.view.auto_mode_btn.setEnabled(True)
-            self.action_setting_detail_btn_status(False)
+            self.setting_detail_btn_status(False)
         except Exception as e:
             self.view.power_status_label.setText("連線出錯！！！")
             return False
 
-    @LoggerSetup().log_execution
     def exit_auto_mode_btn(self):
         try:
             self.view.exit_btn.setEnabled(False)
             self.view.manual_mode_btn.setEnabled(True)
-            self.action_setting_detail_btn_status(False)
+            self.setting_detail_btn_status(False)
         except Exception as e:
             self.view.power_status_label.setText("連線出錯！！！")
             return False
 
-    @LoggerSetup().log_execution
     def disconnect_modbus_on_stop_click(self):
         try:
             self.modbus.clear_output()
@@ -170,11 +144,17 @@ class MainController:
                 self.view.manual_mode_btn.setEnabled(False)
                 self.view.auto_mode_btn.setEnabled(False)
                 self.view.exit_btn.setEnabled(False)
-                self.action_setting_detail_btn_status(False)
+                self.setting_detail_btn_status(False)
             return is_closed
         except Exception as e:
             self.view.power_status_label.setText("連線出錯！！！")
             return False
+
+    def update_keyence_data(self, result):
+        self.view.end_face_angle_measured_value_lineEdit.setText(str(result[0]))
+        self.view.right_angle_degree_measured_value_lineEdit.setText(str(result[1]))
+        self.view.end_face_width_measured_value_lineEdit.setText(str(result[2]))
+        # print(f"端面角度平均值: {result[0]}, 直角度平均值: {result[1]}, 端面寬度平均值: {result[2]}")
 
 
 if __name__ == "__main__":
