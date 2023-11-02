@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'untitledftddlm.ui'
+## Form generated from reading UI file 'untitledVWXGlg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.5.0
 ##
@@ -44,6 +44,7 @@ from PySide6.QtWidgets import (
     QApplication,
     QFrame,
     QGridLayout,
+    QHBoxLayout,
     QLabel,
     QLineEdit,
     QMainWindow,
@@ -66,15 +67,394 @@ class Ui_MainWindow(object):
         MainWindow.setMaximumSize(QSize(1024, 768))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.horizontalLayout = QHBoxLayout(self.centralwidget)
+        self.horizontalLayout.setObjectName("horizontalLayout")
         self.tabWidget = QTabWidget(self.centralwidget)
         self.tabWidget.setObjectName("tabWidget")
-        self.tabWidget.setGeometry(QRect(0, 10, 1591, 731))
+        self.tabWidget.setEnabled(True)
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
+        self.tabWidget.setSizePolicy(sizePolicy)
         font = QFont()
         font.setPointSize(9)
         self.tabWidget.setFont(font)
-        self.tab = QWidget()
-        self.tab.setObjectName("tab")
-        self.frame = QFrame(self.tab)
+        self.tabWidget.setIconSize(QSize(16, 16))
+        self.tab_home = QWidget()
+        self.tab_home.setObjectName("tab_home")
+        self.frame_4 = QFrame(self.tab_home)
+        self.frame_4.setObjectName("frame_4")
+        self.frame_4.setGeometry(QRect(20, 20, 914, 291))
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.gridLayout = QGridLayout(self.frame_4)
+        self.gridLayout.setObjectName("gridLayout")
+        self.gridLayout_26 = QGridLayout()
+        self.gridLayout_26.setObjectName("gridLayout_26")
+        self.horizontalSpacer_35 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_26.addItem(self.horizontalSpacer_35, 0, 10, 1, 1)
+
+        self.end_angle_target = QLineEdit(self.frame_4)
+        self.end_angle_target.setObjectName("end_angle_target")
+        self.end_angle_target.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.end_angle_target, 6, 3, 1, 1)
+
+        self.horizontalSpacer_17 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_26.addItem(self.horizontalSpacer_17, 0, 2, 1, 1)
+
+        self.horizontalSpacer_25 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_26.addItem(self.horizontalSpacer_25, 0, 4, 1, 1)
+
+        self.sensor_B_label_2 = QLabel(self.frame_4)
+        self.sensor_B_label_2.setObjectName("sensor_B_label_2")
+        font1 = QFont()
+        font1.setFamilies(["Cascadia Code"])
+        font1.setPointSize(14)
+        self.sensor_B_label_2.setFont(font1)
+
+        self.gridLayout_26.addWidget(self.sensor_B_label_2, 4, 1, 1, 1, Qt.AlignHCenter)
+
+        self.final_detection_result_label = QLabel(self.frame_4)
+        self.final_detection_result_label.setObjectName("final_detection_result_label")
+        self.final_detection_result_label.setFont(font1)
+
+        self.gridLayout_26.addWidget(
+            self.final_detection_result_label, 8, 1, 1, 1, Qt.AlignHCenter
+        )
+
+        self.right_angle_target = QLineEdit(self.frame_4)
+        self.right_angle_target.setObjectName("right_angle_target")
+        self.right_angle_target.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.right_angle_target, 6, 7, 1, 1)
+
+        self.horizontalSpacer_23 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_26.addItem(self.horizontalSpacer_23, 0, 8, 1, 1)
+
+        self.sensor_A_label = QLabel(self.frame_4)
+        self.sensor_A_label.setObjectName("sensor_A_label")
+        self.sensor_A_label.setFont(font1)
+
+        self.gridLayout_26.addWidget(self.sensor_A_label, 2, 1, 1, 1, Qt.AlignHCenter)
+
+        self.right_angle_label = QLabel(self.frame_4)
+        self.right_angle_label.setObjectName("right_angle_label")
+        self.right_angle_label.setFont(font1)
+
+        self.gridLayout_26.addWidget(
+            self.right_angle_label, 0, 7, 1, 1, Qt.AlignHCenter
+        )
+
+        self.sensor_B_detection_value = QLineEdit(self.frame_4)
+        self.sensor_B_detection_value.setObjectName("sensor_B_detection_value")
+        self.sensor_B_detection_value.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.sensor_B_detection_value, 4, 9, 1, 1)
+
+        self.sensor_B_face_width = QLineEdit(self.frame_4)
+        self.sensor_B_face_width.setObjectName("sensor_B_face_width")
+        self.sensor_B_face_width.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.sensor_B_face_width, 4, 5, 1, 1)
+
+        self.detection_value_target = QLineEdit(self.frame_4)
+        self.detection_value_target.setObjectName("detection_value_target")
+        self.detection_value_target.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.detection_value_target, 6, 9, 1, 1)
+
+        self.target_label = QLabel(self.frame_4)
+        self.target_label.setObjectName("target_label")
+        self.target_label.setFont(font1)
+
+        self.gridLayout_26.addWidget(self.target_label, 6, 1, 1, 1, Qt.AlignHCenter)
+
+        self.sensor_B_right_angle = QLineEdit(self.frame_4)
+        self.sensor_B_right_angle.setObjectName("sensor_B_right_angle")
+        self.sensor_B_right_angle.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.sensor_B_right_angle, 4, 7, 1, 1)
+
+        self.face_width_width = QLabel(self.frame_4)
+        self.face_width_width.setObjectName("face_width_width")
+        self.face_width_width.setFont(font1)
+
+        self.gridLayout_26.addWidget(self.face_width_width, 0, 5, 1, 1, Qt.AlignHCenter)
+
+        self.sensor_A_end_angle = QLineEdit(self.frame_4)
+        self.sensor_A_end_angle.setObjectName("sensor_A_end_angle")
+        self.sensor_A_end_angle.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.sensor_A_end_angle, 2, 3, 1, 1)
+
+        self.sensor_B_end_angle = QLineEdit(self.frame_4)
+        self.sensor_B_end_angle.setObjectName("sensor_B_end_angle")
+        self.sensor_B_end_angle.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.sensor_B_end_angle, 4, 3, 1, 1)
+
+        self.face_width_target = QLineEdit(self.frame_4)
+        self.face_width_target.setObjectName("face_width_target")
+        self.face_width_target.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.face_width_target, 6, 5, 1, 1)
+
+        self.horizontalSpacer_18 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_26.addItem(self.horizontalSpacer_18, 0, 6, 1, 1)
+
+        self.sensor_A_right_angle = QLineEdit(self.frame_4)
+        self.sensor_A_right_angle.setObjectName("sensor_A_right_angle")
+        self.sensor_A_right_angle.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.sensor_A_right_angle, 2, 7, 1, 1)
+
+        self.end_angle_label = QLabel(self.frame_4)
+        self.end_angle_label.setObjectName("end_angle_label")
+        self.end_angle_label.setFont(font1)
+
+        self.gridLayout_26.addWidget(self.end_angle_label, 0, 3, 1, 1, Qt.AlignHCenter)
+
+        self.sensor_A_face_width = QLineEdit(self.frame_4)
+        self.sensor_A_face_width.setObjectName("sensor_A_face_width")
+        self.sensor_A_face_width.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.sensor_A_face_width, 2, 5, 1, 1)
+
+        self.sensor_A_detection_value = QLineEdit(self.frame_4)
+        self.sensor_A_detection_value.setObjectName("sensor_A_detection_value")
+        self.sensor_A_detection_value.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.sensor_A_detection_value, 2, 9, 1, 1)
+
+        self.detection_value_label = QLabel(self.frame_4)
+        self.detection_value_label.setObjectName("detection_value_label")
+        self.detection_value_label.setFont(font1)
+
+        self.gridLayout_26.addWidget(
+            self.detection_value_label, 0, 9, 1, 1, Qt.AlignHCenter
+        )
+
+        self.final_detection_result = QLineEdit(self.frame_4)
+        self.final_detection_result.setObjectName("final_detection_result")
+        self.final_detection_result.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.final_detection_result, 8, 9, 1, 1)
+
+        self.horizontalSpacer_47 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_26.addItem(self.horizontalSpacer_47, 0, 0, 1, 1)
+
+        self.verticalSpacer_37 = QSpacerItem(
+            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
+
+        self.gridLayout_26.addItem(self.verticalSpacer_37, 1, 0, 1, 1)
+
+        self.verticalSpacer_48 = QSpacerItem(
+            40, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
+
+        self.gridLayout_26.addItem(self.verticalSpacer_48, 9, 0, 1, 1)
+
+        self.verticalSpacer_17 = QSpacerItem(
+            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
+
+        self.gridLayout_26.addItem(self.verticalSpacer_17, 3, 0, 1, 1)
+
+        self.verticalSpacer_36 = QSpacerItem(
+            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
+
+        self.gridLayout_26.addItem(self.verticalSpacer_36, 5, 0, 1, 1)
+
+        self.verticalSpacer_26 = QSpacerItem(
+            40, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
+
+        self.gridLayout_26.addItem(self.verticalSpacer_26, 7, 0, 1, 1)
+
+        self.gridLayout.addLayout(self.gridLayout_26, 0, 1, 1, 1)
+
+        self.frame_6 = QFrame(self.tab_home)
+        self.frame_6.setObjectName("frame_6")
+        self.frame_6.setGeometry(QRect(20, 400, 392, 236))
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.gridLayout_4 = QGridLayout(self.frame_6)
+        self.gridLayout_4.setObjectName("gridLayout_4")
+        self.gridLayout_29 = QGridLayout()
+        self.gridLayout_29.setObjectName("gridLayout_29")
+        self.counter = QLineEdit(self.frame_6)
+        self.counter.setObjectName("counter")
+        self.counter.setReadOnly(True)
+
+        self.gridLayout_29.addWidget(self.counter, 3, 3, 1, 1)
+
+        self.horizontalSpacer_46 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_29.addItem(self.horizontalSpacer_46, 0, 0, 1, 1)
+
+        self.horizontalSpacer_40 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_29.addItem(self.horizontalSpacer_40, 0, 4, 1, 1)
+
+        self.ng_counter = QLineEdit(self.frame_6)
+        self.ng_counter.setObjectName("ng_counter")
+        self.ng_counter.setReadOnly(True)
+
+        self.gridLayout_29.addWidget(self.ng_counter, 7, 3, 1, 1)
+
+        self.ng_counter_label = QLabel(self.frame_6)
+        self.ng_counter_label.setObjectName("ng_counter_label")
+        self.ng_counter_label.setFont(font1)
+
+        self.gridLayout_29.addWidget(self.ng_counter_label, 7, 1, 1, 1, Qt.AlignHCenter)
+
+        self.tatal_label = QLabel(self.frame_6)
+        self.tatal_label.setObjectName("tatal_label")
+        self.tatal_label.setFont(font1)
+
+        self.gridLayout_29.addWidget(self.tatal_label, 5, 1, 1, 1, Qt.AlignHCenter)
+
+        self.clean_label_14 = QLabel(self.frame_6)
+        self.clean_label_14.setObjectName("clean_label_14")
+        self.clean_label_14.setFont(font1)
+
+        self.gridLayout_29.addWidget(self.clean_label_14, 0, 3, 1, 1, Qt.AlignHCenter)
+
+        self.counter_label = QLabel(self.frame_6)
+        self.counter_label.setObjectName("counter_label")
+        self.counter_label.setFont(font1)
+
+        self.gridLayout_29.addWidget(self.counter_label, 3, 1, 1, 1, Qt.AlignHCenter)
+
+        self.total = QLineEdit(self.frame_6)
+        self.total.setObjectName("total")
+        self.total.setReadOnly(True)
+
+        self.gridLayout_29.addWidget(self.total, 5, 3, 1, 1)
+
+        self.horizontalSpacer_44 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_29.addItem(self.horizontalSpacer_44, 0, 2, 1, 1)
+
+        self.verticalSpacer_52 = QSpacerItem(
+            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
+
+        self.gridLayout_29.addItem(self.verticalSpacer_52, 1, 0, 1, 1)
+
+        self.verticalSpacer_50 = QSpacerItem(
+            40, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
+
+        self.gridLayout_29.addItem(self.verticalSpacer_50, 8, 0, 1, 1)
+
+        self.verticalSpacer_49 = QSpacerItem(
+            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
+
+        self.gridLayout_29.addItem(self.verticalSpacer_49, 6, 0, 1, 1)
+
+        self.verticalSpacer_53 = QSpacerItem(
+            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
+
+        self.gridLayout_29.addItem(self.verticalSpacer_53, 4, 0, 1, 1)
+
+        self.gridLayout_4.addLayout(self.gridLayout_29, 0, 0, 1, 1)
+
+        self.frame_7 = QFrame(self.tab_home)
+        self.frame_7.setObjectName("frame_7")
+        self.frame_7.setGeometry(QRect(530, 400, 316, 154))
+        self.frame_7.setFrameShape(QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+        self.gridLayout_6 = QGridLayout(self.frame_7)
+        self.gridLayout_6.setObjectName("gridLayout_6")
+        self.gridLayout_30 = QGridLayout()
+        self.gridLayout_30.setObjectName("gridLayout_30")
+        self.verticalSpacer_56 = QSpacerItem(
+            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
+
+        self.gridLayout_30.addItem(self.verticalSpacer_56, 3, 0, 1, 1)
+
+        self.startBtn = QPushButton(self.frame_7)
+        self.startBtn.setObjectName("startBtn")
+
+        self.gridLayout_30.addWidget(self.startBtn, 2, 1, 1, 1)
+
+        self.horizontalSpacer_49 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_30.addItem(self.horizontalSpacer_49, 0, 2, 1, 1)
+
+        self.restartBtn = QPushButton(self.frame_7)
+        self.restartBtn.setObjectName("restartBtn")
+
+        self.gridLayout_30.addWidget(self.restartBtn, 4, 1, 1, 1)
+
+        self.closeBtn = QPushButton(self.frame_7)
+        self.closeBtn.setObjectName("closeBtn")
+
+        self.gridLayout_30.addWidget(self.closeBtn, 4, 3, 1, 1)
+
+        self.horizontalSpacer_48 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_30.addItem(self.horizontalSpacer_48, 0, 0, 1, 1)
+
+        self.pauseBtn = QPushButton(self.frame_7)
+        self.pauseBtn.setObjectName("pauseBtn")
+
+        self.gridLayout_30.addWidget(self.pauseBtn, 2, 3, 1, 1)
+
+        self.verticalSpacer_51 = QSpacerItem(
+            40, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
+
+        self.gridLayout_30.addItem(self.verticalSpacer_51, 5, 0, 1, 1)
+
+        self.horizontalSpacer_45 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
+
+        self.gridLayout_30.addItem(self.horizontalSpacer_45, 0, 4, 1, 1)
+
+        self.gridLayout_6.addLayout(self.gridLayout_30, 0, 0, 1, 1)
+
+        self.tabWidget.addTab(self.tab_home, "")
+        self.tab_action_setting = QWidget()
+        self.tab_action_setting.setObjectName("tab_action_setting")
+        self.frame = QFrame(self.tab_action_setting)
         self.frame.setObjectName("frame")
         self.frame.setGeometry(QRect(40, 20, 941, 580))
         self.frame.setMinimumSize(QSize(900, 580))
@@ -150,9 +530,6 @@ class Ui_MainWindow(object):
 
         self.check_label = QLabel(self.gridLayoutWidget_7)
         self.check_label.setObjectName("check_label")
-        font1 = QFont()
-        font1.setFamilies(["Cascadia Code"])
-        font1.setPointSize(14)
         self.check_label.setFont(font1)
 
         self.gridLayout_22.addWidget(self.check_label, 1, 0, 1, 1, Qt.AlignLeft)
@@ -429,27 +806,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_24.addItem(self.horizontalSpacer_14, 0, 6, 1, 1)
 
-        self.layoutWidget = QWidget(self.frame)
-        self.layoutWidget.setObjectName("layoutWidget")
-        self.layoutWidget.setGeometry(QRect(20, 10, 202, 34))
-        self.gridLayout_7 = QGridLayout(self.layoutWidget)
-        self.gridLayout_7.setObjectName("gridLayout_7")
-        self.gridLayout_7.setContentsMargins(0, 0, 0, 0)
-        self.sub_title = QLabel(self.layoutWidget)
-        self.sub_title.setObjectName("sub_title")
-        font2 = QFont()
-        font2.setFamilies(["Cascadia Code"])
-        font2.setPointSize(20)
-        self.sub_title.setFont(font2)
-
-        self.gridLayout_7.addWidget(self.sub_title, 0, 0, 1, 1)
-
-        self.horizontalSpacer_3 = QSpacerItem(
-            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
-
-        self.gridLayout_7.addItem(self.horizontalSpacer_3, 0, 1, 1, 1)
-
         self.gridLayoutWidget_9 = QWidget(self.frame)
         self.gridLayoutWidget_9.setObjectName("gridLayoutWidget_9")
         self.gridLayoutWidget_9.setGeometry(QRect(510, 380, 381, 171))
@@ -537,292 +893,10 @@ class Ui_MainWindow(object):
         self.power_status_label = QLabel(self.frame)
         self.power_status_label.setObjectName("power_status_label")
         self.power_status_label.setGeometry(QRect(20, 60, 431, 31))
-        self.tabWidget.addTab(self.tab, "")
-        self.tab_2 = QWidget()
-        self.tab_2.setObjectName("tab_2")
-        self.frame_2 = QFrame(self.tab_2)
-        self.frame_2.setObjectName("frame_2")
-        self.frame_2.setGeometry(QRect(40, 20, 951, 485))
-        self.frame_2.setFrameShape(QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_4 = QVBoxLayout(self.frame_2)
-        self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.gridLayout_3 = QGridLayout()
-        self.gridLayout_3.setObjectName("gridLayout_3")
-        self.end_face_angle_target_lineEdit = QLineEdit(self.frame_2)
-        self.end_face_angle_target_lineEdit.setObjectName(
-            "end_face_angle_target_lineEdit"
-        )
-        self.end_face_angle_target_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(self.end_face_angle_target_lineEdit, 5, 3, 1, 1)
-
-        self.measured_value_label = QLabel(self.frame_2)
-        self.measured_value_label.setObjectName("measured_value_label")
-        self.measured_value_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(self.measured_value_label, 2, 5, 1, 1, Qt.AlignLeft)
-
-        self.horizontalSpacer_22 = QSpacerItem(
-            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
-
-        self.gridLayout_3.addItem(self.horizontalSpacer_22, 0, 6, 1, 1)
-
-        self.verticalSpacer_18 = QSpacerItem(
-            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_3.addItem(self.verticalSpacer_18, 1, 1, 1, 1)
-
-        self.total_production_ng_label_lineEdit = QLineEdit(self.frame_2)
-        self.total_production_ng_label_lineEdit.setObjectName(
-            "total_production_ng_label_lineEdit"
-        )
-        self.total_production_ng_label_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(
-            self.total_production_ng_label_lineEdit, 13, 7, 1, 1
-        )
-
-        self.end_face_width_detection_value_lineEdit = QLineEdit(self.frame_2)
-        self.end_face_width_detection_value_lineEdit.setObjectName(
-            "end_face_width_detection_value_lineEdit"
-        )
-        self.end_face_width_detection_value_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(
-            self.end_face_width_detection_value_lineEdit, 7, 7, 1, 1
-        )
-
-        self.verticalSpacer_19 = QSpacerItem(
-            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_3.addItem(self.verticalSpacer_19, 4, 1, 1, 1)
-
-        self.end_face_width_target_lineEdit = QLineEdit(self.frame_2)
-        self.end_face_width_target_lineEdit.setObjectName(
-            "end_face_width_target_lineEdit"
-        )
-        self.end_face_width_target_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(self.end_face_width_target_lineEdit, 7, 3, 1, 1)
-
-        self.ng_count_label = QLabel(self.frame_2)
-        self.ng_count_label.setObjectName("ng_count_label")
-        self.ng_count_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(self.ng_count_label, 11, 7, 1, 1, Qt.AlignLeft)
-
-        self.verticalSpacer_25 = QSpacerItem(
-            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_3.addItem(self.verticalSpacer_25, 17, 1, 1, 1)
-
-        self.end_face_angle_label = QLabel(self.frame_2)
-        self.end_face_angle_label.setObjectName("end_face_angle_label")
-        self.end_face_angle_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(self.end_face_angle_label, 5, 1, 1, 1, Qt.AlignLeft)
-
-        self.right_angle_degree_measured_value_lineEdit = QLineEdit(self.frame_2)
-        self.right_angle_degree_measured_value_lineEdit.setObjectName(
-            "right_angle_degree_measured_value_lineEdit"
-        )
-        self.right_angle_degree_measured_value_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(
-            self.right_angle_degree_measured_value_lineEdit, 9, 5, 1, 1
-        )
-
-        self.verticalSpacer_20 = QSpacerItem(
-            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_3.addItem(self.verticalSpacer_20, 6, 1, 1, 1)
-
-        self.end_face_width_label = QLabel(self.frame_2)
-        self.end_face_width_label.setObjectName("end_face_width_label")
-        self.end_face_width_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(self.end_face_width_label, 7, 1, 1, 1, Qt.AlignLeft)
-
-        self.end_face_angle_measured_value_lineEdit = QLineEdit(self.frame_2)
-        self.end_face_angle_measured_value_lineEdit.setObjectName(
-            "end_face_angle_measured_value_lineEdit"
-        )
-        self.end_face_angle_measured_value_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(
-            self.end_face_angle_measured_value_lineEdit, 5, 5, 1, 1
-        )
-
-        self.end_angular_target_value_lineEdit = QLineEdit(self.frame_2)
-        self.end_angular_target_value_lineEdit.setObjectName(
-            "end_angular_target_value_lineEdit"
-        )
-        self.end_angular_target_value_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(self.end_angular_target_value_lineEdit, 9, 3, 1, 1)
-
-        self.production_cycle_label = QLabel(self.frame_2)
-        self.production_cycle_label.setObjectName("production_cycle_label")
-        self.production_cycle_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(
-            self.production_cycle_label, 16, 1, 1, 1, Qt.AlignLeft
-        )
-
-        self.end_face_width_measured_value_lineEdit = QLineEdit(self.frame_2)
-        self.end_face_width_measured_value_lineEdit.setObjectName(
-            "end_face_width_measured_value_lineEdit"
-        )
-        self.end_face_width_measured_value_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(
-            self.end_face_width_measured_value_lineEdit, 7, 5, 1, 1
-        )
-
-        self.count_label = QLabel(self.frame_2)
-        self.count_label.setObjectName("count_label")
-        self.count_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(self.count_label, 11, 5, 1, 1, Qt.AlignLeft)
-
-        self.production_count_label = QLabel(self.frame_2)
-        self.production_count_label.setObjectName("production_count_label")
-        self.production_count_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(
-            self.production_count_label, 13, 1, 1, 1, Qt.AlignLeft
-        )
-
-        self.sub_title2 = QLabel(self.frame_2)
-        self.sub_title2.setObjectName("sub_title2")
-        self.sub_title2.setFont(font2)
-
-        self.gridLayout_3.addWidget(self.sub_title2, 0, 1, 1, 1)
-
-        self.verticalSpacer_22 = QSpacerItem(
-            20, 30, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_3.addItem(self.verticalSpacer_22, 10, 1, 1, 1)
-
-        self.decision_value_label = QLabel(self.frame_2)
-        self.decision_value_label.setObjectName("decision_value_label")
-        self.decision_value_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(self.decision_value_label, 2, 7, 1, 1, Qt.AlignLeft)
-
-        self.verticalSpacer_21 = QSpacerItem(
-            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_3.addItem(self.verticalSpacer_21, 8, 1, 1, 1)
-
-        self.production_count_target_lineEdit = QLineEdit(self.frame_2)
-        self.production_count_target_lineEdit.setObjectName(
-            "production_count_target_lineEdit"
-        )
-        self.production_count_target_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(self.production_count_target_lineEdit, 13, 3, 1, 1)
-
-        self.verticalSpacer_24 = QSpacerItem(
-            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_3.addItem(self.verticalSpacer_24, 14, 1, 1, 1)
-
-        self.list_item_label = QLabel(self.frame_2)
-        self.list_item_label.setObjectName("list_item_label")
-        self.list_item_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(self.list_item_label, 2, 1, 1, 1, Qt.AlignLeft)
-
-        self.horizontalSpacer_20 = QSpacerItem(
-            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
-
-        self.gridLayout_3.addItem(self.horizontalSpacer_20, 0, 2, 1, 1)
-
-        self.production_cycle_target_lineEdit = QLineEdit(self.frame_2)
-        self.production_cycle_target_lineEdit.setObjectName(
-            "production_cycle_target_lineEdit"
-        )
-        self.production_cycle_target_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(self.production_cycle_target_lineEdit, 16, 3, 1, 1)
-
-        self.target_value_label = QLabel(self.frame_2)
-        self.target_value_label.setObjectName("target_value_label")
-        self.target_value_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(self.target_value_label, 2, 3, 1, 1, Qt.AlignLeft)
-
-        self.total_production_count_lineEdit = QLineEdit(self.frame_2)
-        self.total_production_count_lineEdit.setObjectName(
-            "total_production_count_lineEdit"
-        )
-        self.total_production_count_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(self.total_production_count_lineEdit, 13, 5, 1, 1)
-
-        self.end_face_angle_detection_value_lineEdit = QLineEdit(self.frame_2)
-        self.end_face_angle_detection_value_lineEdit.setObjectName(
-            "end_face_angle_detection_value_lineEdit"
-        )
-        self.end_face_angle_detection_value_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(
-            self.end_face_angle_detection_value_lineEdit, 5, 7, 1, 1
-        )
-
-        self.verticalSpacer_23 = QSpacerItem(
-            20, 30, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_3.addItem(self.verticalSpacer_23, 12, 1, 1, 1)
-
-        self.horizontalSpacer_23 = QSpacerItem(
-            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
-
-        self.gridLayout_3.addItem(self.horizontalSpacer_23, 0, 8, 1, 1)
-
-        self.right_angle_degree_detection_value_lineEdit = QLineEdit(self.frame_2)
-        self.right_angle_degree_detection_value_lineEdit.setObjectName(
-            "right_angle_degree_detection_value_lineEdit"
-        )
-        self.right_angle_degree_detection_value_lineEdit.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(
-            self.right_angle_degree_detection_value_lineEdit, 9, 7, 1, 1
-        )
-
-        self.right_angle_degree_label = QLabel(self.frame_2)
-        self.right_angle_degree_label.setObjectName("right_angle_degree_label")
-        self.right_angle_degree_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(
-            self.right_angle_degree_label, 9, 1, 1, 1, Qt.AlignLeft
-        )
-
-        self.horizontalSpacer_21 = QSpacerItem(
-            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
-
-        self.gridLayout_3.addItem(self.horizontalSpacer_21, 0, 4, 1, 1)
-
-        self.verticalLayout_4.addLayout(self.gridLayout_3)
-
-        self.tabWidget.addTab(self.tab_2, "")
-        self.tab_6 = QWidget()
-        self.tab_6.setObjectName("tab_6")
-        self.frame_3 = QFrame(self.tab_6)
+        self.tabWidget.addTab(self.tab_action_setting, "")
+        self.tab_setting = QWidget()
+        self.tab_setting.setObjectName("tab_setting")
+        self.frame_3 = QFrame(self.tab_setting)
         self.frame_3.setObjectName("frame_3")
         self.frame_3.setGeometry(QRect(50, 20, 941, 521))
         self.frame_3.setFrameShape(QFrame.StyledPanel)
@@ -853,6 +927,9 @@ class Ui_MainWindow(object):
 
         self.sub_title3 = QLabel(self.frame_3)
         self.sub_title3.setObjectName("sub_title3")
+        font2 = QFont()
+        font2.setFamilies(["Cascadia Code"])
+        font2.setPointSize(20)
         self.sub_title3.setFont(font2)
 
         self.gridLayout_5.addWidget(self.sub_title3, 0, 1, 1, 1)
@@ -1111,90 +1188,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addLayout(self.gridLayout_5)
 
-        self.tabWidget.addTab(self.tab_6, "")
-        self.tab_3 = QWidget()
-        self.tab_3.setObjectName("tab_3")
-        self.frame_4 = QFrame(self.tab_3)
-        self.frame_4.setObjectName("frame_4")
-        self.frame_4.setGeometry(QRect(40, 20, 386, 187))
-        self.frame_4.setFrameShape(QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_8 = QVBoxLayout(self.frame_4)
-        self.verticalLayout_8.setObjectName("verticalLayout_8")
-        self.gridLayout_13 = QGridLayout()
-        self.gridLayout_13.setObjectName("gridLayout_13")
-        self.verticalSpacer_36 = QSpacerItem(
-            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_13.addItem(self.verticalSpacer_36, 1, 1, 1, 1)
-
-        self.sensor_names_lineEdit = QLineEdit(self.frame_4)
-        self.sensor_names_lineEdit.setObjectName("sensor_names_lineEdit")
-        self.sensor_names_lineEdit.setReadOnly(True)
-
-        self.gridLayout_13.addWidget(
-            self.sensor_names_lineEdit, 5, 1, 1, 1, Qt.AlignHCenter
-        )
-
-        self.current_status_label = QLabel(self.frame_4)
-        self.current_status_label.setObjectName("current_status_label")
-        self.current_status_label.setFont(font1)
-
-        self.gridLayout_13.addWidget(
-            self.current_status_label, 3, 4, 1, 1, Qt.AlignLeft
-        )
-
-        self.sub_title4 = QLabel(self.frame_4)
-        self.sub_title4.setObjectName("sub_title4")
-        self.sub_title4.setFont(font2)
-
-        self.gridLayout_13.addWidget(self.sub_title4, 0, 1, 1, 1)
-
-        self.horizontalSpacer_33 = QSpacerItem(
-            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
-
-        self.gridLayout_13.addItem(self.horizontalSpacer_33, 0, 5, 1, 1)
-
-        self.current_status_lineEdit = QLineEdit(self.frame_4)
-        self.current_status_lineEdit.setObjectName("current_status_lineEdit")
-        self.current_status_lineEdit.setReadOnly(True)
-
-        self.gridLayout_13.addWidget(
-            self.current_status_lineEdit, 5, 4, 1, 1, Qt.AlignHCenter
-        )
-
-        self.verticalSpacer_37 = QSpacerItem(
-            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_13.addItem(self.verticalSpacer_37, 4, 1, 1, 1)
-
-        self.horizontalSpacer_32 = QSpacerItem(
-            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
-
-        self.gridLayout_13.addItem(self.horizontalSpacer_32, 0, 3, 1, 1)
-
-        self.sensor_names_label = QLabel(self.frame_4)
-        self.sensor_names_label.setObjectName("sensor_names_label")
-        self.sensor_names_label.setFont(font1)
-
-        self.gridLayout_13.addWidget(self.sensor_names_label, 3, 1, 1, 1, Qt.AlignLeft)
-
-        self.verticalSpacer_38 = QSpacerItem(
-            20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_13.addItem(self.verticalSpacer_38, 6, 1, 1, 1)
-
-        self.verticalLayout_8.addLayout(self.gridLayout_13)
-
-        self.tabWidget.addTab(self.tab_3, "")
-        self.tab_4 = QWidget()
-        self.tab_4.setObjectName("tab_4")
-        self.frame_5 = QFrame(self.tab_4)
+        self.tabWidget.addTab(self.tab_setting, "")
+        self.tab_alarm = QWidget()
+        self.tab_alarm.setObjectName("tab_alarm")
+        self.frame_5 = QFrame(self.tab_alarm)
         self.frame_5.setObjectName("frame_5")
         self.frame_5.setGeometry(QRect(30, 20, 565, 181))
         self.frame_5.setFrameShape(QFrame.StyledPanel)
@@ -1283,157 +1280,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_9.addLayout(self.gridLayout_15)
 
-        self.tabWidget.addTab(self.tab_4, "")
-        self.tab_5 = QWidget()
-        self.tab_5.setObjectName("tab_5")
-        self.frame_6 = QFrame(self.tab_5)
-        self.frame_6.setObjectName("frame_6")
-        self.frame_6.setGeometry(QRect(30, 20, 931, 231))
-        self.frame_6.setFrameShape(QFrame.StyledPanel)
-        self.frame_6.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_10 = QVBoxLayout(self.frame_6)
-        self.verticalLayout_10.setObjectName("verticalLayout_10")
-        self.gridLayout_17 = QGridLayout()
-        self.gridLayout_17.setObjectName("gridLayout_17")
-        self.verticalSpacer_44 = QSpacerItem(
-            20, 5, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
+        self.tabWidget.addTab(self.tab_alarm, "")
 
-        self.gridLayout_17.addItem(self.verticalSpacer_44, 1, 1, 1, 1)
+        self.horizontalLayout.addWidget(self.tabWidget)
 
-        self.end_face_angle_label_3 = QLabel(self.frame_6)
-        self.end_face_angle_label_3.setObjectName("end_face_angle_label_3")
-        self.end_face_angle_label_3.setFont(font1)
-
-        self.gridLayout_17.addWidget(
-            self.end_face_angle_label_3, 2, 3, 1, 1, Qt.AlignLeft
-        )
-
-        self.horizontalSpacer_41 = QSpacerItem(
-            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
-
-        self.gridLayout_17.addItem(self.horizontalSpacer_41, 0, 2, 1, 1)
-
-        self.anomaly_time_label_2 = QLabel(self.frame_6)
-        self.anomaly_time_label_2.setObjectName("anomaly_time_label_2")
-        self.anomaly_time_label_2.setFont(font1)
-
-        self.gridLayout_17.addWidget(
-            self.anomaly_time_label_2, 2, 11, 1, 1, Qt.AlignLeft
-        )
-
-        self.horizontalSpacer_43 = QSpacerItem(
-            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
-
-        self.gridLayout_17.addItem(self.horizontalSpacer_43, 0, 6, 1, 1)
-
-        self.right_angle_degree_label_3 = QLabel(self.frame_6)
-        self.right_angle_degree_label_3.setObjectName("right_angle_degree_label_3")
-        self.right_angle_degree_label_3.setFont(font1)
-
-        self.gridLayout_17.addWidget(
-            self.right_angle_degree_label_3, 2, 7, 1, 1, Qt.AlignLeft
-        )
-
-        self.end_face_angle_lineEdit = QLineEdit(self.frame_6)
-        self.end_face_angle_lineEdit.setObjectName("end_face_angle_lineEdit")
-        self.end_face_angle_lineEdit.setReadOnly(True)
-
-        self.gridLayout_17.addWidget(self.end_face_angle_lineEdit, 4, 3, 1, 1)
-
-        self.steel_pipe_id_label_2 = QLabel(self.frame_6)
-        self.steel_pipe_id_label_2.setObjectName("steel_pipe_id_label_2")
-        self.steel_pipe_id_label_2.setFont(font1)
-
-        self.gridLayout_17.addWidget(
-            self.steel_pipe_id_label_2, 2, 1, 1, 1, Qt.AlignLeft
-        )
-
-        self.steel_pipe_id_lineEdit_2 = QLineEdit(self.frame_6)
-        self.steel_pipe_id_lineEdit_2.setObjectName("steel_pipe_id_lineEdit_2")
-        self.steel_pipe_id_lineEdit_2.setReadOnly(True)
-
-        self.gridLayout_17.addWidget(self.steel_pipe_id_lineEdit_2, 4, 1, 1, 1)
-
-        self.verticalSpacer_46 = QSpacerItem(
-            20, 5, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_17.addItem(self.verticalSpacer_46, 5, 1, 1, 1)
-
-        self.horizontalSpacer_42 = QSpacerItem(
-            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
-
-        self.gridLayout_17.addItem(self.horizontalSpacer_42, 0, 4, 1, 1)
-
-        self.end_face_width_label_3 = QLabel(self.frame_6)
-        self.end_face_width_label_3.setObjectName("end_face_width_label_3")
-        self.end_face_width_label_3.setFont(font1)
-
-        self.gridLayout_17.addWidget(
-            self.end_face_width_label_3, 2, 5, 1, 1, Qt.AlignLeft
-        )
-
-        self.horizontalSpacer_44 = QSpacerItem(
-            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
-
-        self.gridLayout_17.addItem(self.horizontalSpacer_44, 0, 8, 1, 1)
-
-        self.right_angle_degree_lineEdit = QLineEdit(self.frame_6)
-        self.right_angle_degree_lineEdit.setObjectName("right_angle_degree_lineEdit")
-        self.right_angle_degree_lineEdit.setReadOnly(True)
-
-        self.gridLayout_17.addWidget(self.right_angle_degree_lineEdit, 4, 7, 1, 1)
-
-        self.end_face_width_lineEdit = QLineEdit(self.frame_6)
-        self.end_face_width_lineEdit.setObjectName("end_face_width_lineEdit")
-        self.end_face_width_lineEdit.setReadOnly(True)
-
-        self.gridLayout_17.addWidget(self.end_face_width_lineEdit, 4, 5, 1, 1)
-
-        self.anomaly_time_lineEdit_2 = QLineEdit(self.frame_6)
-        self.anomaly_time_lineEdit_2.setObjectName("anomaly_time_lineEdit_2")
-        self.anomaly_time_lineEdit_2.setReadOnly(True)
-
-        self.gridLayout_17.addWidget(self.anomaly_time_lineEdit_2, 4, 11, 1, 1)
-
-        self.verticalSpacer_45 = QSpacerItem(
-            20, 5, QSizePolicy.Minimum, QSizePolicy.Expanding
-        )
-
-        self.gridLayout_17.addItem(self.verticalSpacer_45, 3, 1, 1, 1)
-
-        self.horizontalSpacer_45 = QSpacerItem(
-            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum
-        )
-
-        self.gridLayout_17.addItem(self.horizontalSpacer_45, 0, 10, 1, 1)
-
-        self.status_label_2 = QLabel(self.frame_6)
-        self.status_label_2.setObjectName("status_label_2")
-        self.status_label_2.setFont(font1)
-
-        self.gridLayout_17.addWidget(self.status_label_2, 2, 9, 1, 1, Qt.AlignLeft)
-
-        self.status_lineEdit_2 = QLineEdit(self.frame_6)
-        self.status_lineEdit_2.setObjectName("status_lineEdit_2")
-        self.status_lineEdit_2.setReadOnly(True)
-
-        self.gridLayout_17.addWidget(self.status_lineEdit_2, 4, 9, 1, 1)
-
-        self.sub_title6 = QLabel(self.frame_6)
-        self.sub_title6.setObjectName("sub_title6")
-        self.sub_title6.setFont(font2)
-
-        self.gridLayout_17.addWidget(self.sub_title6, 0, 1, 1, 1)
-
-        self.verticalLayout_10.addLayout(self.gridLayout_17)
-
-        self.tabWidget.addTab(self.tab_5, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -1441,7 +1291,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
 
         QMetaObject.connectSlotsByName(MainWindow)
 
@@ -1452,6 +1302,62 @@ class Ui_MainWindow(object):
             QCoreApplication.translate(
                 "MainWindow", "\u92fc\u7ba1\u54c1\u8cea\u6aa2\u9a57\u7cfb\u7d71", None
             )
+        )
+        self.sensor_B_label_2.setText(
+            QCoreApplication.translate("MainWindow", "B \u93e1\u982d", None)
+        )
+        self.final_detection_result_label.setText(
+            QCoreApplication.translate(
+                "MainWindow", "\u6700\u7d42\u6aa2\u6e2c\u7d50\u679c", None
+            )
+        )
+        self.sensor_A_label.setText(
+            QCoreApplication.translate("MainWindow", "A \u93e1\u982d", None)
+        )
+        self.right_angle_label.setText(
+            QCoreApplication.translate("MainWindow", "\u76f4\u89d2\u5ea6", None)
+        )
+        self.target_label.setText(
+            QCoreApplication.translate("MainWindow", "\u76ee\u6a19\u503c", None)
+        )
+        self.face_width_width.setText(
+            QCoreApplication.translate("MainWindow", "\u7aef\u9762\u5bec\u5ea6", None)
+        )
+        self.end_angle_label.setText(
+            QCoreApplication.translate("MainWindow", "\u7aef\u9762\u89d2\u5ea6", None)
+        )
+        self.detection_value_label.setText(
+            QCoreApplication.translate("MainWindow", "\u6aa2\u6e2c\u503c", None)
+        )
+        self.ng_counter_label.setText(
+            QCoreApplication.translate("MainWindow", "NG \u6578\u91cf", None)
+        )
+        self.tatal_label.setText(
+            QCoreApplication.translate(
+                "MainWindow", "\u751f\u7522\u7e3d\u6578\u91cf", None
+            )
+        )
+        self.clean_label_14.setText(
+            QCoreApplication.translate("MainWindow", "\u6578\u91cf", None)
+        )
+        self.counter_label.setText(
+            QCoreApplication.translate("MainWindow", "\u8a08\u6578", None)
+        )
+        self.startBtn.setText(
+            QCoreApplication.translate("MainWindow", "\u958b\u59cb", None)
+        )
+        self.restartBtn.setText(
+            QCoreApplication.translate("MainWindow", "\u91cd\u555f", None)
+        )
+        self.closeBtn.setText(
+            QCoreApplication.translate("MainWindow", "\u95dc\u9589", None)
+        )
+        self.pauseBtn.setText(
+            QCoreApplication.translate("MainWindow", "\u66ab\u505c", None)
+        )
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.tab_home),
+            QCoreApplication.translate("MainWindow", "\u9996\u9801", None),
         )
         self.power_btn.setText(
             QCoreApplication.translate("MainWindow", "\u96fb\u6e90", None)
@@ -1537,9 +1443,6 @@ class Ui_MainWindow(object):
         self.pomp_power_open_btn.setText(
             QCoreApplication.translate("MainWindow", "\u6253\u958b", None)
         )
-        self.sub_title.setText(
-            QCoreApplication.translate("MainWindow", "\u52d5\u4f5c\u8a2d\u5b9a", None)
-        )
         self.airValue_value_open_btn.setText(
             QCoreApplication.translate("MainWindow", "\u6253\u958b", None)
         )
@@ -1563,52 +1466,8 @@ class Ui_MainWindow(object):
         )
         self.power_status_label.setText("")
         self.tabWidget.setTabText(
-            self.tabWidget.indexOf(self.tab),
+            self.tabWidget.indexOf(self.tab_action_setting),
             QCoreApplication.translate("MainWindow", "\u52d5\u4f5c\u8a2d\u5b9a", None),
-        )
-        self.measured_value_label.setText(
-            QCoreApplication.translate("MainWindow", "\u5be6\u6e2c\u503c", None)
-        )
-        self.ng_count_label.setText(
-            QCoreApplication.translate("MainWindow", "NG \u6578\u91cf", None)
-        )
-        self.end_face_angle_label.setText(
-            QCoreApplication.translate("MainWindow", "\u7aef\u9762\u89d2\u5ea6", None)
-        )
-        self.end_face_width_label.setText(
-            QCoreApplication.translate("MainWindow", "\u7aef\u9762\u5bec\u5ea6", None)
-        )
-        self.end_face_angle_measured_value_lineEdit.setText("")
-        self.production_cycle_label.setText(
-            QCoreApplication.translate("MainWindow", "\u751f\u7522\u9031\u671f", None)
-        )
-        self.count_label.setText(
-            QCoreApplication.translate("MainWindow", "\u8a08\u6578", None)
-        )
-        self.production_count_label.setText(
-            QCoreApplication.translate(
-                "MainWindow", "\u751f\u7522\u7e3d\u6578\u91cf", None
-            )
-        )
-        self.sub_title2.setText(
-            QCoreApplication.translate("MainWindow", "\u6e2c\u91cf\u986f\u793a", None)
-        )
-        self.decision_value_label.setText(
-            QCoreApplication.translate("MainWindow", "\u5224\u5b9a\u503c", None)
-        )
-        self.list_item_label.setText(
-            QCoreApplication.translate("MainWindow", "\u9805\u76ee", None)
-        )
-        self.target_value_label.setText(
-            QCoreApplication.translate("MainWindow", "\u76ee\u6a19\u503c", None)
-        )
-        self.total_production_count_lineEdit.setText("")
-        self.right_angle_degree_label.setText(
-            QCoreApplication.translate("MainWindow", "\u76f4\u89d2\u5ea6", None)
-        )
-        self.tabWidget.setTabText(
-            self.tabWidget.indexOf(self.tab_2),
-            QCoreApplication.translate("MainWindow", "\u6e2c\u91cf\u986f\u793a", None),
         )
         self.sub_title3.setText(
             QCoreApplication.translate("MainWindow", "\u6e2c\u91cf\u8a2d\u5b9a", None)
@@ -1656,27 +1515,8 @@ class Ui_MainWindow(object):
             )
         )
         self.tabWidget.setTabText(
-            self.tabWidget.indexOf(self.tab_6),
-            QCoreApplication.translate("MainWindow", "\u6e2c\u91cf\u8a2d\u5b9a", None),
-        )
-        self.current_status_label.setText(
-            QCoreApplication.translate("MainWindow", "\u7576\u524d\u72c0\u614b", None)
-        )
-        self.sub_title4.setText(
-            QCoreApplication.translate(
-                "MainWindow", "\u611f\u6e2c\u5668\u72c0\u614b", None
-            )
-        )
-        self.sensor_names_label.setText(
-            QCoreApplication.translate(
-                "MainWindow", "\u611f\u6e2c\u5668\u540d\u7a31", None
-            )
-        )
-        self.tabWidget.setTabText(
-            self.tabWidget.indexOf(self.tab_3),
-            QCoreApplication.translate(
-                "MainWindow", "\u611f\u6e2c\u5668\u72c0\u614b", None
-            ),
+            self.tabWidget.indexOf(self.tab_setting),
+            QCoreApplication.translate("MainWindow", "\u8a2d\u5b9a", None),
         )
         self.steel_pipe_id_label.setText(
             QCoreApplication.translate("MainWindow", "\u92fc\u7ba1\u7de8\u865f", None)
@@ -1691,33 +1531,8 @@ class Ui_MainWindow(object):
             QCoreApplication.translate("MainWindow", "\u7570\u5e38\u7d00\u9304", None)
         )
         self.tabWidget.setTabText(
-            self.tabWidget.indexOf(self.tab_4),
+            self.tabWidget.indexOf(self.tab_alarm),
             QCoreApplication.translate("MainWindow", "\u7570\u5e38\u7d00\u9304", None),
-        )
-        self.end_face_angle_label_3.setText(
-            QCoreApplication.translate("MainWindow", "\u7aef\u9762\u89d2\u5ea6", None)
-        )
-        self.anomaly_time_label_2.setText(
-            QCoreApplication.translate("MainWindow", "\u7570\u5e38\u6642\u9593", None)
-        )
-        self.right_angle_degree_label_3.setText(
-            QCoreApplication.translate("MainWindow", "\u76f4\u89d2\u5ea6", None)
-        )
-        self.steel_pipe_id_label_2.setText(
-            QCoreApplication.translate("MainWindow", "\u92fc\u7ba1\u7de8\u865f", None)
-        )
-        self.end_face_width_label_3.setText(
-            QCoreApplication.translate("MainWindow", "\u7aef\u9762\u5bec\u5ea6", None)
-        )
-        self.status_label_2.setText(
-            QCoreApplication.translate("MainWindow", "\u72c0\u614b", None)
-        )
-        self.sub_title6.setText(
-            QCoreApplication.translate("MainWindow", "\u8cc7\u6599\u4fdd\u5b58", None)
-        )
-        self.tabWidget.setTabText(
-            self.tabWidget.indexOf(self.tab_5),
-            QCoreApplication.translate("MainWindow", "\u8cc7\u6599\u4fdd\u5b58", None),
         )
 
     # retranslateUi
