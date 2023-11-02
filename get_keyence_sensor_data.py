@@ -30,22 +30,36 @@ class GetKeyenceSensorData(QThread):
         return client_socket
 
     def collect_keyence_sensor_data(self, client_socket):
-        end_face_angle, right_angle, end_face_width, detection_value = [], [], [], []
-        for i in range(3):
+        senor_a_end_angle, sensor_a_right_angle, sensor_a_face_width = [], [], []
+        senor_b_end_angle, sensor_b_right_angle, sensor_b_face_width = [], [], []
+        
+        for i in range(5):
             data = client_socket.recv(1024)
             data = data.decode("utf-8")
             data_list = data.split(",")
             data_float = [float(i) for i in data_list]
             # print(data_float)
-            end_face_angle.append(data_float[0])
-            right_angle.append(data_float[1])
-            end_face_width.append(data_float[2])
-            detection_value.append(data_float[3])
+            senor_a_end_angle.append(data_float[0])
+            sensor_a_right_angle.append(data_float[1])
+            sensor_a_face_width.append(data_float[2])
+            senor_b_end_angle.append(data_float[3])
+            sensor_b_right_angle.append(data_float[4])
+            sensor_b_face_width.append(data_float[5])
+
         result = [
-            np.mean(end_face_angle),
-            np.mean(right_angle),
-            np.mean(end_face_width),
-            np.mean(detection_value),
+            np.mean(senor_a_end_angle),
+            np.mean(sensor_a_right_angle),
+            np.mean(sensor_a_face_width),
+            np.mean(senor_b_end_angle),
+            np.mean(sensor_b_right_angle),
+            np.mean(sensor_b_face_width),
         ]
         result = [round(i, 2) for i in result]
+        # print(result)
         return result
+    
+if __name__ == "__main__":
+    host = "192.168.10.10"
+    port = 8500
+    keyence_sensor = GetKeyenceSensorData(host, port)
+    keyence_sensor.run()

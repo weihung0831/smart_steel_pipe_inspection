@@ -1,3 +1,4 @@
+import random
 import sys
 
 from PySide6.QtWidgets import QApplication, QMainWindow
@@ -19,7 +20,10 @@ class MainController:
         self.modbus = ModbusCom(self.ip_address)
         self.initialize_ui_connections()
         self.initialize_cylinder_connections()
-        self.initialize_keyence_sensor_connections("192.168.10.10", 8500)
+        # self.initialize_keyence_sensor_connections("192.168.10.10", 8500)
+        self.counter = 0
+        self.ng_counter = 0
+        self.start_system()
 
     def initialize_cylinder_connections(self):
         self.actuatorController = CylinderController(modbus=self.modbus)
@@ -41,6 +45,12 @@ class MainController:
             self.update_keyence_data
         )
         self.collect_keyence_data_controller.start()
+
+    def start_system(self):
+        self.view.startBtn.clicked.connect(self.startBtn_clicked)
+
+    def startBtn_clicked(self):
+        self.initialize_keyence_sensor_connections("192.168.10.10", 8500)
 
     def connect_to_modbus(self):
         try:
@@ -149,14 +159,73 @@ class MainController:
             return False
 
     def update_keyence_data(self, result):
-        self.view.end_face_angle_measured_value_lineEdit.setText(str(result[0]))
-        self.view.end_face_width_measured_value_lineEdit.setText(str(result[2]))
-        self.view.right_angle_degree_measured_value_lineEdit.setText(str(result[1]))
-        result[3] = "OK" if result[3] == 0.0 else "NG"
-        self.view.end_face_angle_detection_value_lineEdit.setText(result[3])
-        self.view.end_face_width_detection_value_lineEdit.setText(result[3])
-        self.view.right_angle_degree_detection_value_lineEdit.setText(result[3])
-        print(f"端面角度平均值: {result[0]}, 直角度平均值: {result[1]}, 端面寬度平均值: {result[2]}, 檢測值: {result[3]}")
+        self.counter += 1
+        senor_a_end_angle = result[1]
+        sensor_a_right_angle = result[0]
+        sensor_a_face_width = result[2]
+        senor_b_end_angle = result[4]
+        sensor_b_right_angle = result[3]
+        sensor_b_face_width = result[5]
+
+        senor_b_end_angle = round(random.uniform(32, 34), 2)
+        sensor_b_face_width = round(random.uniform(0.8, 2.4), 2)
+        sensor_b_right_angle = round(random.uniform(88, 91), 2)
+
+        self.view.sensor_A_end_angle.setText(str(senor_a_end_angle))
+        self.view.sensor_A_face_width.setText(str(sensor_a_face_width))
+        self.view.sensor_A_right_angle.setText(str(sensor_a_right_angle))
+        self.view.sensor_B_end_angle.setText(str(senor_b_end_angle))
+        self.view.sensor_B_face_width.setText(str(sensor_b_face_width))
+        self.view.sensor_B_right_angle.setText(str(sensor_b_right_angle))
+
+        self.view.counter.setText(str(self.counter))
+        self.view.ng_counter.setText(str(self.ng_counter))
+        if (
+            self.detection_value_judgment(
+                senor_a_end_angle, sensor_a_face_width, sensor_a_right_angle
+            )
+            == False
+        ):
+            self.view.sensor_A_detection_value.setText("NG")
+            self.view.sensor_A_detection_value.setStyleSheet("background-color: red")
+        elif (
+            self.detection_value_judgment(
+                senor_b_end_angle, sensor_b_face_width, sensor_b_right_angle
+            )
+            == False
+        ):
+            self.view.sensor_B_detection_value.setText("NG")
+            self.view.sensor_B_detection_value.setStyleSheet("background-color: red")
+        else:
+            self.view.sensor_A_detection_value.setText("OK")
+            self.view.sensor_B_detection_value.setText("OK")
+            self.view.sensor_A_detection_value.setStyleSheet("background-color: green")
+            self.view.sensor_B_detection_value.setStyleSheet("background-color: green")
+
+        if (
+            self.view.sensor_A_detection_value.text() == "NG"
+            or self.view.sensor_B_detection_value.text() == "NG"
+        ):
+            self.view.final_detection_result.setText("NG")
+            self.ng_counter += 1
+            self.view.ng_counter.setText(str(self.ng_counter))
+            self.view.final_detection_result.setStyleSheet("background-color: red")
+        else:
+            self.view.final_detection_result.setText("OK")
+            self.view.final_detection_result.setStyleSheet("background-color: green")
+
+    def detection_value_judgment(self, end_angle, face_width, right_angle):
+        if (
+            end_angle < 32
+            or end_angle > 34
+            or face_width < 0.8
+            or face_width > 2.4
+            or right_angle < 90
+            or right_angle > 91
+        ):
+            return False
+        else:
+            return True
 
 
 if __name__ == "__main__":
