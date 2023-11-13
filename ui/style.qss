@@ -1,36 +1,7 @@
 QWidget {{
-  font-size: 20px;
+  font-size: 16px;
 }}
 
 QLineEdit {{
   color: #ffffff;
-}}
-
-#sub_title {{
-  font-size: 30px;
-}}
-
-#sub_title2 {{
-  font-size: 30px;
-}}
-
-#sub_title3 {{
-  font-size: 30px;
-}}
-
-#sub_title4 {{
-  font-size: 30px;
-}}
-
-#sub_title5 {{
-  font-size: 30px;
-}}
-
-#sub_title6 {{
-  font-size: 30px;
-}}
-
-#power_status_label {{
-  font-size: 25px;
-  color: #ff0808;
 }}

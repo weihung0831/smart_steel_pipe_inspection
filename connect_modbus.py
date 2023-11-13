@@ -57,3 +57,9 @@ class ModbusCom:
 
     def disconnect(self):
         self.client.close()
+
+    def connect(self):
+        self.client.open()
+
+    def stop(self):
+        self.client.close()
